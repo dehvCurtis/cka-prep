@@ -1,11 +1,15 @@
 # Workloads & Scheduling [ 15% ]
-- How to Perform Deployment
-- How to Perform Rolling Update 
-- How to Perform Rollbacks
+- Create Deployment
+- Scale Deployment
+- Rolling Updates
+- Rollbacks
 
 ## Deployments
 
+Read https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+
 ### Create Deployment
+
 ```bash
 kubectl create deployment test-deployment --image=alpine
 ```
@@ -26,6 +30,8 @@ kubectl set image deployment test-deployment <name-of-container>=<new-image-name
 ```
 
 ### Reference
+
+https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment
 
 ## Rollback
 ```bash
