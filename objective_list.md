@@ -49,3 +49,11 @@ kubectl create cm test-configmap --from-literal=key1=value1
 
 ## Secrets
 Secrets are used to store sensitive data in kv pair format. They can also be used to inject env vars into pods.
+
+```bash
+kubectl create secrets test-secret --from-file=hello.txt 
+```
+
+```bash
+kubectl create secrets test-secret --from-file=hello.txt 
+```
