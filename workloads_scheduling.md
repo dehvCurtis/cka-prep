@@ -6,7 +6,9 @@
 
 ## Deployments
 
-Read https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+### Reading
+
+Overview of Deployments https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 
 ### Create Deployment
 
