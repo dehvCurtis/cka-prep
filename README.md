@@ -3,6 +3,7 @@
 - [Description](#Description)
 - 
 - [Tips](#Tips)
+- [Useful Links](#UsefulLinks)
 - YAML Templates
 
 ## Description
@@ -21,6 +22,44 @@ Tips gathered from blog posts, videos and obtained personally throughout studyin
 - Write it down (like this) as you learn
 - imperative over declarative
 
-## Useful Links
+Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
+
+- Write it down (like this) as you learn
+- imperative over declarative
+- Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
+  - Write it down (like this) as you learn
+  - imperative over declarative
+  - Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
+    - Write it down (like this) as you learn
+    - imperative over declarative
+    - Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
+      - Write it down (like this) as you learn
+      - imperative over declarative
+      - Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
+        - Write it down (like this) as you learn
+        - imperative over declarative
+        - Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
+          - Write it down (like this) as you learn
+          - imperative over declarative
+          - Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
+            - Write it down (like this) as you learn
+            - imperative over declarative
+            - Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
+              - Write it down (like this) as you learn
+              - imperative over declarative
+              - Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
+                - Write it down (like this) as you learn
+                - imperative over declarative
+                - Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
+                  - Write it down (like this) as you learn
+                  - imperative over declarative
+                  - Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
+                    - Write it down (like this) as you learn
+                    - imperative over declarative
+                    - Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
+                      - Write it down (like this) as you learn
+                      - imperative over declarative
+
+## UsefulLinks
 
 Cloud Native Foundation: https://www.cncf.io/certification/cka/
