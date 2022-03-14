@@ -3,7 +3,7 @@
 - [Description](#Description)
 - 
 - [Tips](#Tips)
-- [Useful Links](#UsefulLinks)
+- [Useful Links](#Useful Links)
 - YAML Templates
 
 ## Description
@@ -60,6 +60,6 @@ Tips gathered from blog posts, videos and obtained personally throughout studyin
                       - Write it down (like this) as you learn
                       - imperative over declarative
 
-## UsefulLinks
+## Useful Links
 
 Cloud Native Foundation: https://www.cncf.io/certification/cka/
