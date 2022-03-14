@@ -1,7 +1,8 @@
 # Certified Kubernetes Administrator (CKA) Study Guide
 
 - [Description](#Description)
-- 
+- [Objectives](#Objectives)
+- Practice Runs
 - [Tips](#Tips)
 - [Useful Links](#Useful-Links)
 - YAML Templates
@@ -15,50 +16,24 @@ The purpose of this documentation is to
 - Translate study habits to practice habits
 - Document practice habits for every day use
 
+## Objectives
+
+| Domain                                             | Weight |
+| -------------------------------------------------- | ------ |
+| Cluster Architecture, Installation & Configuration | 25%    |
+| Workloads & Scheduling                             | 15%    |
+| Services & Networking                              | 20%    |
+| Storage                                            | 10%    |
+| Troubleshooting                                    | 30%    |
+
+
+
 ## Tips
 
 Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
 
 - Write it down (like this) as you learn
 - imperative over declarative
-
-Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
-
-- Write it down (like this) as you learn
-- imperative over declarative
-- Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
-  - Write it down (like this) as you learn
-  - imperative over declarative
-  - Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
-    - Write it down (like this) as you learn
-    - imperative over declarative
-    - Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
-      - Write it down (like this) as you learn
-      - imperative over declarative
-      - Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
-        - Write it down (like this) as you learn
-        - imperative over declarative
-        - Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
-          - Write it down (like this) as you learn
-          - imperative over declarative
-          - Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
-            - Write it down (like this) as you learn
-            - imperative over declarative
-            - Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
-              - Write it down (like this) as you learn
-              - imperative over declarative
-              - Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
-                - Write it down (like this) as you learn
-                - imperative over declarative
-                - Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
-                  - Write it down (like this) as you learn
-                  - imperative over declarative
-                  - Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
-                    - Write it down (like this) as you learn
-                    - imperative over declarative
-                    - Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
-                      - Write it down (like this) as you learn
-                      - imperative over declarative
 
 ## Useful-Links
 
