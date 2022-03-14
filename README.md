@@ -18,13 +18,13 @@ The purpose of this documentation is to
 
 ## Objectives
 
-| Domain                                             | Weight |
-| -------------------------------------------------- | ------ |
-| Cluster Architecture, Installation & Configuration | 25%    |
-| Workloads & Scheduling                             | 15%    |
-| Services & Networking                              | 20%    |
-| Storage                                            | 10%    |
-| Troubleshooting                                    | 30%    |
+| Domain                                                       | Weight |
+| ------------------------------------------------------------ | ------ |
+| Cluster Architecture, Installation & Configuration           | 25%    |
+| [Workloads & Scheduling](https://github.com/dehvCurtis/cka-prep/blob/main/workloads_scheduling.md) | 15%    |
+| Services & Networking                                        | 20%    |
+| Storage                                                      | 10%    |
+| Troubleshooting                                              | 30%    |
 
 
 
