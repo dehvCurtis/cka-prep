@@ -1,6 +1,9 @@
 # cka-prep
 
-Tips
+- t
+- [Tips](#Tips)
+
+# Tips
 
 - Write it down (like this) as you learn
 - imperative over declartive
