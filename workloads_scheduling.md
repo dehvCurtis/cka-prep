@@ -11,17 +11,13 @@ Table of Contents
 
 - ConfigMaps and Secrets
 
-# Description
-
-Understand deployments and how to perform rolling update and rollbacks
-
 # Deployments
 
-## Reading
+## <u>Create Deployment</u>
+
+### Reading
 
 Overview of Deployments https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
-
-## Create Deployment
 
 ### Objectives
 
@@ -30,6 +26,8 @@ Overview of Deployments https://kubernetes.io/docs/concepts/workloads/controller
 - Confirm the deployment rolled out successfully
 
 ### Practice
+
+Create Deployment
 
 
 ```bash
@@ -40,7 +38,7 @@ kubectl create ns test
 kubectl create deployment test-deployment -n test --image=nginx --replicas=3
 ```
 
-- Confirm deployment is up:
+Confirm deployment is functional:
 
 ```bash
 # check rollout status
@@ -50,17 +48,20 @@ kubectl -n test rollout status deployment/test-deployment
 kubectl -n test get deployment/test-deployment
 ```
 
-Check the pods from the deployment:
+Check pods from deployment:
 
 ```bash
 kubectl -n test get pods
-NAME                            READY   STATUS    RESTARTS   AGE
-nginx-deploy-57767fb8cf-fjtls   1/1     Running   0          29s
-nginx-deploy-57767fb8cf-krp4m   1/1     Running   0          29s
-nginx-deploy-57767fb8cf-xvz8l   1/1     Running   0          29s
 ```
 
-## Scale Deployment
+## <u>Scale Deployment</u>
+
+### Reading
+
+AutoScaling
+
+- https://kubernetes.io/de/docs/tasks/run-application/horizontal-pod-autoscale/
+- https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
 
 ### Objectives
 
