@@ -27,33 +27,29 @@ Overview of Deployments https://kubernetes.io/docs/concepts/workloads/controller
 - Create a deployment named `nginx-deploy` in the `ngx` namespace using `nginx:1.19` with three replicas
 - Confirm the deployment rolled out successfully
 
-<details><summary>Solution</summary>
-<p>
 
 ```bash
-# Create the template from kubectl
-kubectl -n ngx create deployment nginx-deploy --replicas=3 --image=nginx:1.19 --dry-run=client -o yaml > nginx-deploy.yaml
+# Create the namespace
+kubectl create ns test
 
-# Create the namespace first
-kubectl create ns ngx
-kubectl apply -f nginx-deploy.yaml
+# Create deployment & replicas
+kubectl create deployment test-deployment -n test --image=nginx --replicas=3
 ```
 
-Check that the deployment has rolled out and that it is running:
+- Confirm deployment is up:
 
 ```bash
-kubectl -n ngx rollout status deployment/nginx-deploy
-deployment "nginx-deploy" successfully rolled out
+# check rollout status
+kubectl -n test rollout status deployment/test-deployment
 
-kubectl -n ngx get deploy
-NAME           READY   UP-TO-DATE   AVAILABLE   AGE
-nginx-deploy   3/3     3            3           44s
+# check deployment
+kubectl -n test get deployment/test-deployment
 ```
 
 Check the pods from the deployment:
 
 ```bash
-kubectl -n ngx get pods
+kubectl -n test get pods
 NAME                            READY   STATUS    RESTARTS   AGE
 nginx-deploy-57767fb8cf-fjtls   1/1     Running   0          29s
 nginx-deploy-57767fb8cf-krp4m   1/1     Running   0          29s
