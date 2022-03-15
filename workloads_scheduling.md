@@ -85,5 +85,8 @@ Scale deployment
 k scale deployment test-deployment -n test --replicas=5
 ```
 
+Autoscale a deployment
 
-
+- minimum of two pods
+- maximum of six pods
+- autoscales when cpu usage goes above 70%
