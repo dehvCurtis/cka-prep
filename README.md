@@ -6,7 +6,7 @@ https://www.cncf.io/certification/cka/
 
 ## CNCF CKA Curriculum v1.23:
 
-https://github.com/cncf/curriculum/blob/master/CKAD_Curriculum_v1.23.pdf
+https://github.com/cncf/curriculum/blob/master/CKA_Curriculum_v1.22.pdf
 
 ## Objectives
 
@@ -15,3 +15,4 @@ https://github.com/cncf/curriculum/blob/master/CKAD_Curriculum_v1.23.pdf
 ## Useful-Links
 
 Cloud Native Foundation: https://www.cncf.io/certification/cka/
+
