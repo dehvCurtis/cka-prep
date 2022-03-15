@@ -65,12 +65,25 @@ AutoScaling
 
 ### Objectives
 
-- Confirm deployment
+- Create scalable deployment
 - Scale Deployment
 - Auto-Scale Deployment
 
 ### Practice
 
+Create deployment
+
 ```bash
+# Create namespace & scalable deployment
+kubectl create deployment test-deployment -n test --replicas=2 --image=nginx:1.9
 ```
+
+Scale deployment
+
+```bash
+# Scale to a total of 5 pods
+k scale deployment test-deployment -n test --replicas=5
+```
+
+
 
