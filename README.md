@@ -1,20 +1,12 @@
 # Certified Kubernetes Administrator (CKA) Study Guide
 
-- [Description](#Description)
-- [Objectives](#Objectives)
-- Practice Runs
-- [Tips](#Tips)
-- [Useful Links](#Useful-Links)
-- YAML Templates
+## CNCF CKA official page:
 
-## Description
+https://www.cncf.io/certification/cka/
 
-The purpose of this documentation is to
+## CNCF CKA Curriculum v1.20:
 
-- document the study process
-- Develop study habits
-- Translate study habits to practice habits
-- Document practice habits for every day use
+https://github.com/cncf/curriculum/blob/master/old-versions/CKA_Curriculum_v1.20.pdf
 
 ## Objectives
 
@@ -26,14 +18,12 @@ The purpose of this documentation is to
 | Storage                                                      | 10%    |
 | Troubleshooting                                              | 30%    |
 
+## Reference articles about  CKA:
 
-
-## Tips
-
-Tips gathered from blog posts, videos and obtained personally throughout studying for the Certified Kubernetes Administrator (CKA) exam.
-
-- Write it down (like this) as you learn
-- imperative over declarative
+- https://medium.com/@pmvk/tips-to-crack-certified-kubernetes-administrator-cka-exam-c949c7a9bea1
+- https://medium.com/bb-tutorials-and-thoughts/practice-enough-with-these-questions-for-the-ckad-exam-2f42d1228552
+- https://github.com/stretchcloud/cka-lab-practice
+- https://github.com/dgkanatsios/CKAD-exercises (Useful for CKA too)
 
 ## Useful-Links
 
