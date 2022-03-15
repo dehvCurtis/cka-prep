@@ -13,65 +13,51 @@ Table of Contents
 
 # Description
 
+Understand deployments and how to perform rolling update and rollbacks
+
 # Deployments
 
-### Reading
+## Reading
 
 Overview of Deployments https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 
-### Create Deployment
+## Practice
+
+- Create a namespace named `ngx`
+- Create a deployment named `nginx-deploy` in the `ngx` namespace using `nginx:1.19` with three replicas
+- Confirm the deployment rolled out successfully
+
+<details><summary>Solution</summary>
+<p>
 
 ```bash
-kubectl create deployment test-deployment --image=alpine
+# Create the template from kubectl
+kubectl -n ngx create deployment nginx-deploy --replicas=3 --image=nginx:1.19 --dry-run=client -o yaml > nginx-deploy.yaml
+
+# Create the namespace first
+kubectl create ns ngx
+kubectl apply -f nginx-deploy.yaml
 ```
 
-### Scale Deployment
-```bash
-kubectl scale deployment test-deployment --replicas=4 # Scale Up / Down
-```
-
-### Reference
-https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
-
-## Rolling Updates
+Check that the deployment has rolled out and that it is running:
 
 ```bash
-kubectl set image deployment test-deployment <name-of-container>=<new-image-name>
+kubectl -n ngx rollout status deployment/nginx-deploy
+deployment "nginx-deploy" successfully rolled out
+
+kubectl -n ngx get deploy
+NAME           READY   UP-TO-DATE   AVAILABLE   AGE
+nginx-deploy   3/3     3            3           44s
 ```
 
-### Reference
-
-https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment
-
-## Rollback
+Check the pods from the deployment:
 
 ```bash
-
+kubectl -n ngx get pods
+NAME                            READY   STATUS    RESTARTS   AGE
+nginx-deploy-57767fb8cf-fjtls   1/1     Running   0          29s
+nginx-deploy-57767fb8cf-krp4m   1/1     Running   0          29s
+nginx-deploy-57767fb8cf-xvz8l   1/1     Running   0          29s
 ```
 
-### Reference
-https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-a-deployment
 
-# Use Config Maps and Secrets to Configure applications
-
-Kubernetes `configmaps` are used to store non-critical data in kv pair format. They can also be used to inject env vars into pods.
-
-
-```bash
-kubectl create cm test-configmap --from-file=<file>
-```
-
-```bash
-kubectl create cm test-configmap --from-literal=key1=value1 
-```
-
-## Secrets
-Secrets are used to store sensitive data in kv pair format. They can also be used to inject env vars into pods.
-
-```bash
-kubectl create secrets test-secret --from-file=hello.txt 
-```
-
-```bash
-kubectl create secrets test-secret --from-file=hello.txt 
-```
