@@ -21,11 +21,15 @@ Understand deployments and how to perform rolling update and rollbacks
 
 Overview of Deployments https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 
-## Practice
+## Create Deployment
+
+### Objectives
 
 - Create a namespace named `ngx`
 - Create a deployment named `nginx-deploy` in the `ngx` namespace using `nginx:1.19` with three replicas
 - Confirm the deployment rolled out successfully
+
+### Practice
 
 
 ```bash
@@ -56,4 +60,16 @@ nginx-deploy-57767fb8cf-krp4m   1/1     Running   0          29s
 nginx-deploy-57767fb8cf-xvz8l   1/1     Running   0          29s
 ```
 
+## Scale Deployment
+
+### Objectives
+
+- Confirm deployment
+- Scale Deployment
+- Auto-Scale Deployment
+
+### Practice
+
+```bash
+```
 
