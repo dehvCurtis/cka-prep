@@ -6,9 +6,9 @@ This page is used to perform repetative practice for everything that you've lear
 
 This marathon is written from an imperative perspective, since the CKA is a timed test.
 
-## Marathon
+# Marathon
 
-### Workloads and Scheduling
+## Workloads and Scheduling
 
 1) Create deployment
 

@@ -3,16 +3,17 @@
 Table of Contents
 
 - [Description](#Description)
-- Create Deployment
-- Scale Deployment
-- Rolling Updates
-- Rollbacks
+- [Deployments](#Deployments)
+  - Create Deployment
+  - Scale Deployment
+  - Rolling Updates
+  - Rollbacks
 
-## Description
+- ConfigMaps and Secrets
 
+# Description
 
-
-## Deployments
+# Deployments
 
 ### Reading
 
@@ -34,7 +35,6 @@ https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 
 ## Rolling Updates
 
-### Update Image
 ```bash
 kubectl set image deployment test-deployment <name-of-container>=<new-image-name>
 ```
@@ -44,6 +44,7 @@ kubectl set image deployment test-deployment <name-of-container>=<new-image-name
 https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment
 
 ## Rollback
+
 ```bash
 
 ```
@@ -51,7 +52,8 @@ https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a
 ### Reference
 https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-a-deployment
 
-## Use Config Maps and Secrets to Configure applications
+# Use Config Maps and Secrets to Configure applications
+
 Kubernetes `configmaps` are used to store non-critical data in kv pair format. They can also be used to inject env vars into pods.
 
 
