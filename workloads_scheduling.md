@@ -90,3 +90,7 @@ Autoscale a deployment
 - minimum of two pods
 - maximum of six pods
 - autoscales when cpu usage goes above 70%
+
+```bash
+```
+
