@@ -59,6 +59,14 @@ kubectl -n test get pods
 
 ### Practice Performing a Rolling Update
 
+Scale to 5 replicas
+
+```bash
+kubectl scale deployment test-deployment -n test --replicas=5 
+```
+
+Update to newer image
+
 
 
 ### Practice Performing a Rollback
