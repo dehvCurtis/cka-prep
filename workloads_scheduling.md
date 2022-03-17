@@ -22,10 +22,12 @@ Understand deployments and how to perform rolling update and rollbacks
 
 Overview of Deployments https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 
+Perform Rolling Update: https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/
+
 ### Objectives
 
-- Create a namespace named `ngx`
-- Create a deployment named `nginx-deploy` in the `ngx` namespace using `nginx:1.19` with three replicas
+- Create a namespace named `test`
+- Create a deployment named `test-deployment` in the `test` namespace using `nginx:1.19` with three replicas
 - Confirm the deployment rolled out successfully
 
 ### Practice Creating Deployments
@@ -38,7 +40,7 @@ Create Deployment
 kubectl create ns test
 
 # Create deployment & replicas
-kubectl create deployment test-deployment -n test --image=nginx --replicas=3
+kubectl create deployment test-deployment -n test --image=nginx:1.19 --replicas=3
 ```
 
 Confirm deployment is functional:
