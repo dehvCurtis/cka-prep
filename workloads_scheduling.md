@@ -4,8 +4,8 @@ Table of Contents
 
 - [Description](#Description)
 - [Deployments](#Deployments)
-  - Understand deployments and how to perform rolling update and rollbacks
-  - Use ConfigMaps and Secrets to configure applications
+  - Deployments, Rolling Updates and Rollbacks
+  - ConfigMaps and Secrets
   - Know how to scale applications
   - Understand the primitives used to create robust, self-healing, application deployments
   - Understand how resource limits can affect Pod scheduling 
@@ -13,6 +13,8 @@ Table of Contents
 - ConfigMaps and Secrets
 
 # Deployments
+
+## Deployments, Rolling Updates and Rollbacks
 
 ### Description
 
@@ -90,5 +92,8 @@ kubectl get pods -n test
 kubectl describe pod <pod-name> -n test
 ```
 
+## ConfigMaps and Secrets
 
+### Description
 
+Use ConfigMaps and Secrets to configure applications
