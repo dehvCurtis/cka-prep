@@ -65,6 +65,10 @@ Update to newer image
 kubectl edit deployment test-deployment -n test
 ```
 
+### Reading
+
+
+
 ### Practice Performing a Rollback
 
 Check the history of the deployment
@@ -103,3 +107,21 @@ Use ConfigMaps and Secrets to configure applications
 https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/
 
 ### Practice Environment Variables
+
+Create a pod using latest `nginx` image with an environment variable
+
+```bash
+kubectl run pod-test -n test --image=nginx --env="TEST=test"
+```
+
+Exec into pod to confirm environment variable
+
+```bash
+kubectl exec pod-test -n test -- env | grep TEST
+```
+
+### Reading
+
+Doc: https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
+
+### Practice ConfigMaps
