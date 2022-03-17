@@ -24,11 +24,7 @@ Understand deployments and how to perform rolling update and rollbacks
 
 Overview of Deployments https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 
-Overview of Rolling Update: https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/
-
-Perform Rolling Update: https://kubernetes.io/docs/tasks/manage-daemon/update-daemon-set/
-
-### Practice Creating Deployments
+### Creating Deployments
 
 Create Deployment
 
@@ -51,7 +47,11 @@ kubectl -n test get deployment test-deployment
 kubectl -n test get pods
 ```
 
-### Practice Performing a Rolling Update
+### Reading
+
+Overview of Rolling Update: https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/
+
+### Performing a Rolling Update
 
 Scale to 5 replicas
 
@@ -97,3 +97,9 @@ kubectl describe pod <pod-name> -n test
 ### Description
 
 Use ConfigMaps and Secrets to configure applications
+
+### Reading
+
+https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/
+
+### Practice Environment Variables
