@@ -90,5 +90,3 @@ kubectl get pods -n test
 kubectl describe pod <pod-name> -n test
 ```
 
-
-
