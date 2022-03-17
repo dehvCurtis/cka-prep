@@ -46,16 +46,10 @@ kubectl create deployment test-deployment -n test --image=nginx:1.19 --replicas=
 Confirm deployment is functional:
 
 ```bash
-# check rollout status
-kubectl -n test rollout status deployment/test-deployment
-
 # check deployment
 kubectl -n test get deployment/test-deployment
-```
 
-Check pods from deployment:
-
-```bash
+# check pods
 kubectl -n test get pods
 ```
 
