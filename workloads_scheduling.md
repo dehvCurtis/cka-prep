@@ -152,3 +152,9 @@ Define the key when creating ConfigMap from file
 kubectl create configmap test-config-2 --from-file TEST_KEY=configmaps/game.properties
 ```
 
+Create ConfigMap from literal values
+
+```bash
+kubectl create configmap test-config-3 --from-literal blue=blueberry
+```
+
