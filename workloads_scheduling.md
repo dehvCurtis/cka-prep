@@ -142,5 +142,6 @@ kubectl create configmap test-config --from-file=game.properties
 
 # Confirm ConfigMap
 kubectl decsribe configmap test-config
+kubectl get configmap test-config -o yaml
 ```
 
