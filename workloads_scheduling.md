@@ -96,11 +96,15 @@ kubectl get pods -n test
 kubectl describe pod <pod-name> -n test
 ```
 
-## ConfigMaps and Secrets
+## ConfigMaps, Environment Variables and Secrets
 
 ### Description
 
-Use ConfigMaps and Secrets to configure applications
+Use the `kubectl create configmap` command to create ConfigMaps from [directories](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#create-configmaps-from-directories), [files](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#create-configmaps-from-files), or [literal values](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#create-configmaps-from-literal-values)
+
+### Reading
+
+https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
 
 ### Reading
 
