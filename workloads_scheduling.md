@@ -134,6 +134,7 @@ Create ConfigMap from files
 
 ```bash	
 # Download example config files
+mkdir configmap && cd configmap
 wget https://kubernetes.io/examples/configmap/game.properties
 wget https://kubernetes.io/examples/configmap/ui.properties
 
