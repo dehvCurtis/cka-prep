@@ -129,3 +129,18 @@ kubectl exec pod-test -n test -- env | grep TEST
 Doc: https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
 
 ### Practice ConfigMaps
+
+Create ConfigMap from files
+
+```bash	
+# Download example config files
+wget https://kubernetes.io/examples/configmap/game.properties
+wget https://kubernetes.io/examples/configmap/ui.properties
+
+# Create ConfigMap
+kubectl create configmap test-config --from-file=game.properties
+
+# Confirm ConfigMap
+kubectl decsribe configmap test-config
+```
+
