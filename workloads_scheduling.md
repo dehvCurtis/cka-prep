@@ -134,7 +134,7 @@ Create ConfigMap from files
 
 ```bash	
 # Download example config files
-mkdir configmap && cd configmap
+mkdir configmaps && cd configmaps
 wget https://kubernetes.io/examples/configmap/game.properties
 wget https://kubernetes.io/examples/configmap/ui.properties
 
@@ -144,5 +144,11 @@ kubectl create configmap test-config --from-file=game.properties
 # Confirm ConfigMap
 kubectl decsribe configmap test-config
 kubectl get configmap test-config -o yaml
+```
+
+Define the key when creating ConfigMap from file
+
+```bash
+kubectl create configmap test-config-2 --from-file TEST_KEY=configmaps/game.properties
 ```
 
