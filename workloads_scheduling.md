@@ -126,7 +126,7 @@ kubectl exec pod-test -n test -- env | grep TEST
 
 ### Reading
 
-Doc: https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
+https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
 
 ### Practice ConfigMaps
 
@@ -156,5 +156,41 @@ Create ConfigMap from literal values
 
 ```bash
 kubectl create configmap test-config-3 --from-literal blue=blueberry
+```
+
+### Reading
+
+https://kubernetes.io/docs/concepts/configuration/secret/
+
+### Practice Secrets
+
+Create files that contain secrets
+
+```bash
+echo -n 'admin' > /tmp/admin.txt
+echo -n 'passw0rd' > /tmp/pass.txt
+```
+
+Create secret from file
+
+```bash 
+# Create secrets from file
+kubectl create secret generic user-pass-secret --from-file=username=/tmp/admin.txt --from-file=password=/tmp/pass.txt
+
+# Confirm secret
+kubectl get secret
+kubectl describe secret user-pass-secret
+```
+
+Create secret from literal
+
+```bash
+# Create secret using literals
+kubectl create secret generic --from-literal=username='admin' --from-literal=password='abc123'
+```
+
+Create secret as env variable
+
+```bash
 ```
 
