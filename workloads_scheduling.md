@@ -178,7 +178,6 @@ Create secret from file
 kubectl create secret generic user-pass-secret --from-file=username=/tmp/admin.txt --from-file=password=/tmp/pass.txt
 
 # Confirm secrets
-kubectl describe secret user-pass-secret
 kubectl get secret user-pass-secret -o jsonpath='{.data}'
 kubectl get secret user-pass-secret -o jsonpath='{.data.username}'
 kubectl get secret user-pass-secret -o jsonpath='{.data.password}'
@@ -188,7 +187,13 @@ Create secret from literal
 
 ```bash
 # Create secret using literals
-kubectl create secret generic --from-literal=username='admin' --from-literal=password='abc123'
+kubectl create secret generic test-secret --from-literal=testkey='testvalue'
+
+# Confirm secrets
+kubectl get secret test-secret -o jsonpath='{.data}'
+
+# Decode secret
+kubectl get secret test-secret -o jsonpath={'.data.testkey'} | base64 --decode
 ```
 
 Create secret as env variable
