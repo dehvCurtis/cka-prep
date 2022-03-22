@@ -201,3 +201,13 @@ Create secret as env variable
 ```bash
 ```
 
+Editing secrets
+
+```bash
+# Create new base64 secret
+echo -n 'test-secret' | base64
+
+# Edit secret
+kubectl edit secret test-secret
+```
+
