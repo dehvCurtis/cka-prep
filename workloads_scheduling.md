@@ -4,7 +4,7 @@ Table of Contents
 
 - [Description](#Description)
 - [Deployments](#Deployments)
-  - Deployments, Rolling Updates and Rollbacks
+  - [Deployments, Rolling Updates and Rollbacks](#deployments-rolling-updates-and-rollbacks)
   - [ConfigMaps, Environment Variables and Secrets](#configmaps-environment-variables-and-secrets)
   - [Scale Applications]()
   - Understand the primitives used to create robust, self-healing, application deployments
