@@ -5,21 +5,16 @@ Table of Contents
 - [Deployments](#Deployments)
   - [Creating Deployments](#creating-deployments)
   - [Performing a Rolling Update](#performing-a-rolling-update)
+  - [Performing a Rollback](#performing-a-rollback)
 - [ConfigMaps, Environment Variables and Secrets](#configmaps-environment-variables-and-secrets)
 
 # Deployments
 
 ## Deployments, Rolling Updates and Rollbacks
 
-### Description
-
-Understand deployments and how to perform rolling update and rollbacks
-
-### Reading
+### Creating Deployments
 
 Overview of Deployments https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
-
-### Creating Deployments
 
 Create Deployment
 
@@ -42,11 +37,9 @@ kubectl -n test get deployment test-deployment
 kubectl -n test get pods
 ```
 
-### Reading
+### Performing a Rolling Update
 
 Overview of Rolling Update: https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/
-
-### Performing a Rolling Update
 
 Scale to 5 replicas
 
@@ -60,11 +53,7 @@ Update to newer image
 kubectl edit deployment test-deployment -n test
 ```
 
-### Reading
-
-
-
-### Practice Performing a Rollback
+### Performing a Rollback
 
 Check the history of the deployment
 
@@ -93,19 +82,9 @@ kubectl describe pod <pod-name> -n test
 
 ## ConfigMaps, Environment Variables and Secrets
 
-### Description
-
-Use the `kubectl create configmap` command to create ConfigMaps from [directories](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#create-configmaps-from-directories), [files](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#create-configmaps-from-files), or [literal values](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#create-configmaps-from-literal-values)
-
-### Reading
-
-https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
-
-### Reading
+### Practice Environment Variables
 
 https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/
-
-### Practice Environment Variables
 
 Create a pod using latest `nginx` image with an environment variable
 
@@ -119,11 +98,9 @@ Exec into pod to confirm environment variable
 kubectl exec pod-test -n test -- env | grep TEST
 ```
 
-### Reading
+### Practice ConfigMaps
 
 https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
-
-### Practice ConfigMaps
 
 Create ConfigMap from files
 
@@ -153,11 +130,9 @@ Create ConfigMap from literal values
 kubectl create configmap test-config-3 --from-literal blue=blueberry
 ```
 
-### Reading
+### Practice Secrets
 
 https://kubernetes.io/docs/concepts/configuration/secret/
-
-### Practice Secrets
 
 Create files that contain secrets
 
