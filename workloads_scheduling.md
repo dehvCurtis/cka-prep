@@ -45,16 +45,12 @@ kubectl -n test get pods
 
 Overview of Rolling Update: https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/
 
-Scale to 5 replicas
-
-```bash
-kubectl scale deployment test-deployment -n test --replicas=5 
-```
-
-Update to newer image
+Update Image
 
 ```bash
 kubectl edit deployment test-deployment -n test
+
+# change image version and save
 ```
 
 ### Performing a Rollback
