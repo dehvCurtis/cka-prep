@@ -196,9 +196,17 @@ kubectl get secret test-secret -o jsonpath='{.data}'
 kubectl get secret test-secret -o jsonpath={'.data.testkey'} | base64 --decode
 ```
 
-Create secret as env variable
+Create secret from `.env` file
 
 ```bash
+# Create `.env` file
+echo -n "TESTVAR=testenvvar" > .env
+
+# Create secret with .env file
+kubectl create secret generic testsecret --from-env-file=.env
+
+# Confirm secret
+kubectl get secret testsecret -o jsonpath={.data}
 ```
 
 Editing secrets
