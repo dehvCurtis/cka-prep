@@ -13,6 +13,9 @@ Table of Contents
 - [Scale Applications](#scale-applications)
   - [Scale Application](#scale-application)
   - [Auto-Scale Application](#auto-scale-application)
+- [Robust, Self-Healing, Application Deployments](#robust-self-healing-application-deployments)
+  - [ReplicaSets](#replicasets)
+  - [DaemonSets](#daemonSets)
 
 # Deployments
 
@@ -226,3 +229,6 @@ kubectl get hpa
 kubectl get pods
 ```
 
+## Robust, Self-Healing, Application Deployments
+
+### ReplicaSets
