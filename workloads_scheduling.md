@@ -5,7 +5,7 @@ Table of Contents
 - [Description](#Description)
 - [Deployments](#Deployments)
   - Deployments, Rolling Updates and Rollbacks
-  - ConfigMaps and Secrets
+  - [ConfigMaps, Environment Variables and Secrets](#configmaps-environment-variables-and-secrets)
   - Know how to scale applications
   - Understand the primitives used to create robust, self-healing, application deployments
   - Understand how resource limits can affect Pod scheduling 
@@ -217,5 +217,10 @@ echo -n 'test-secret' | base64
 
 # Edit secret
 kubectl edit secret test-secret
+```
+
+Use secret as environment variables
+
+```bash
 ```
 
