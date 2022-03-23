@@ -4,13 +4,9 @@ Table of Contents
 
 - [Description](#Description)
 - [Deployments](#Deployments)
-  - [Deployments, Rolling Updates and Rollbacks](#deployments-rolling-updates-and-rollbacks)
-  - [ConfigMaps, Environment Variables and Secrets](#configmaps-environment-variables-and-secrets)
-  - [Scale Applications](#scale-applications)
-  - Understand the primitives used to create robust, self-healing, application deployments
-  - Understand how resource limits can affect Pod scheduling 
-  - Awareness of manifest management and common templating tools
-- ConfigMaps and Secrets
+  - [Creating Deployments](#creating-deployments)
+  - [Performing a Rolling Update](#performing-a-rolling-update)
+- [ConfigMaps, Environment Variables and Secrets](#configmaps-environment-variables-and-secrets)
 
 # Deployments
 
