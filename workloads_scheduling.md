@@ -204,6 +204,12 @@ Use secret as environment variables
 kubectl scale deployment test-deployment --replicas=5
 ```
 
-
-
 ### Auto-Scale Application
+
+https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
+
+https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
+
+```bash
+```
+
