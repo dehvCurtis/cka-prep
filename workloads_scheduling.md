@@ -2,7 +2,6 @@
 
 Table of Contents
 
-- [Description](#Description)
 - [Deployments](#Deployments)
   - [Creating Deployments](#creating-deployments)
   - [Performing a Rolling Update](#performing-a-rolling-update)
