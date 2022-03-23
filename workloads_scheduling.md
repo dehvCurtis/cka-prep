@@ -10,6 +10,7 @@ Table of Contents
   - [ConfigMaps](#configmaps)
   - [Environment Variables](#environment-variables)
   - [Secrets](#secrets)
+- [Scale Applications](#scale-applications)
 
 # Deployments
 
