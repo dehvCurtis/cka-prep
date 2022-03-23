@@ -7,6 +7,9 @@ Table of Contents
   - [Performing a Rolling Update](#performing-a-rolling-update)
   - [Performing a Rollback](#performing-a-rollback)
 - [ConfigMaps, Environment Variables and Secrets](#configmaps-environment-variables-and-secrets)
+  - [ConfigMaps](#configmaps)
+  - [Environment Variables](#environment-variables)
+  - [Secrets](#secrets)
 
 # Deployments
 
@@ -82,23 +85,7 @@ kubectl describe pod <pod-name> -n test
 
 ## ConfigMaps, Environment Variables and Secrets
 
-### Practice Environment Variables
-
-https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/
-
-Create a pod using latest `nginx` image with an environment variable
-
-```bash
-kubectl run pod-test -n test --image=nginx --env="TEST=test"
-```
-
-Exec into pod to confirm environment variable
-
-```bash
-kubectl exec pod-test -n test -- env | grep TEST
-```
-
-### Practice ConfigMaps
+### ConfigMaps
 
 https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
 
@@ -130,7 +117,23 @@ Create ConfigMap from literal values
 kubectl create configmap test-config-3 --from-literal blue=blueberry
 ```
 
-### Practice Secrets
+### Environment Variables
+
+https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/
+
+Create a pod using latest `nginx` image with an environment variable
+
+```bash
+kubectl run pod-test -n test --image=nginx --env="TEST=test"
+```
+
+Exec into pod to confirm environment variable
+
+```bash
+kubectl exec pod-test -n test -- env | grep TEST
+```
+
+### Secrets
 
 https://kubernetes.io/docs/concepts/configuration/secret/
 
