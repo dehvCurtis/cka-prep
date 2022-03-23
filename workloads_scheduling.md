@@ -6,7 +6,7 @@ Table of Contents
 - [Deployments](#Deployments)
   - Deployments, Rolling Updates and Rollbacks
   - [ConfigMaps, Environment Variables and Secrets](#configmaps-environment-variables-and-secrets)
-  - Know how to scale applications
+  - [Scale Applications]()
   - Understand the primitives used to create robust, self-healing, application deployments
   - Understand how resource limits can affect Pod scheduling 
   - Awareness of manifest management and common templating tools
@@ -224,3 +224,4 @@ Use secret as environment variables
 ```bash
 ```
 
+## Scale Applications
