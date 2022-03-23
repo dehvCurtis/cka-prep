@@ -11,6 +11,8 @@ Table of Contents
   - [Environment Variables](#environment-variables)
   - [Secrets](#secrets)
 - [Scale Applications](#scale-applications)
+  - [Scale Application](#scale-application)
+  - [Auto-Scale Application](#auto-scale-application)
 
 # Deployments
 
@@ -195,3 +197,13 @@ Use secret as environment variables
 ```
 
 ## Scale Applications
+
+### Scale Application
+
+```bash
+kubectl scale deployment test-deployment --replicas=5
+```
+
+
+
+### Auto-Scale Application
