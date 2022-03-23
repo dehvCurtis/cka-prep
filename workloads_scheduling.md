@@ -4,8 +4,8 @@ Table of Contents
 
 - [Deployments](#Deployments)
   - [Creating Deployments](#creating-deployments)
-  - [Performing a Rolling Update](#performing-a-rolling-update)
-  - [Performing a Rollback](#performing-a-rollback)
+  - [Rolling Update](#rolling-update)
+  - [Rollback](#rollback)
 - [ConfigMaps, Environment Variables and Secrets](#configmaps-environment-variables-and-secrets)
   - [ConfigMaps](#configmaps)
   - [Environment Variables](#environment-variables)
@@ -41,7 +41,7 @@ kubectl -n test get deployment test-deployment
 kubectl -n test get pods
 ```
 
-### Performing a Rolling Update
+### Rolling Update
 
 Overview of Rolling Update: https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/
 
@@ -53,7 +53,7 @@ kubectl edit deployment test-deployment -n test
 # change image version and save
 ```
 
-### Performing a Rollback
+### Rollback
 
 Check the history of the deployment
 
