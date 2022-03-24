@@ -75,9 +75,6 @@ kubectl rollout history deployment test-deployment -n test
 # Undo changes
 kubectl rollout undo deployment test-deployment -n test
 
-# Confirm ReplicaSet
-kubectl get rs -n test
-
 # Confirm pods
 kubectl get pods -n test
 
