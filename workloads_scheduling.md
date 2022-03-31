@@ -123,7 +123,7 @@ https://kubernetes.io/docs/tasks/inject-data-application/define-environment-vari
 Create a pod using latest `nginx` image with an environment variable
 
 ```bash
-kubectl run pod-test -n test --image=nginx --env="TEST=test"
+kubectl run pod-test -n test --image=nginx --env=TEST=test
 ```
 
 Exec into pod to confirm environment variable
