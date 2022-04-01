@@ -16,6 +16,7 @@ Table of Contents
 - [Robust, Self-Healing, Application Deployments](#robust-self-healing-application-deployments)
   - [ReplicaSets](#replicasets)
   - [DaemonSets](#daemonSets)
+  - [Resource Limits](#resource-limits)
 
 # Deployments
 
@@ -233,3 +234,15 @@ kubectl get pods
 https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
 
 A deployment uses a replicaset object to maintain the right number of desired replicas of a pod. See section [Deployments](#Deployments) above to see how deployments handle replicaset for updating.
+
+### DaemonSets
+
+https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
+
+Create DaemonSet with latest busybox image and see that it runs on all nodes.
+
+## Resource Limits
+
+https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+
+https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/quota-memory-cpu-namespace/
