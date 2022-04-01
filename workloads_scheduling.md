@@ -229,3 +229,7 @@ kubectl get pods
 ## Robust, Self-Healing, Application Deployments
 
 ### ReplicaSets
+
+https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
+
+A deployment uses a replicaset object to maintain the right number of desired replicas of a pod. See section [Deployments](#Deployments) above to see how deployments handle replicaset for updating.

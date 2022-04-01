@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    type: daemon
+  name: daemontest
+spec:
+  selector:
+    matchLabels:
+      run: daemon
+  template:
+    metadata:
+      labels:
+        run: daemon
+      name: daemonpod
+    spec:
+      containers:
+      - image: busybox:latest
+        name: daemonpod
+        args:
+          - sleep
+          - "3600"
