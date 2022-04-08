@@ -241,6 +241,39 @@ https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
 
 Create DaemonSet with latest busybox image and see that it runs on all nodes.
 
+```yaml
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    type: daemon
+  name: daemontest
+spec:
+  selector:
+    matchLabels:
+      run: daemon
+  template:
+    metadata:
+      labels:
+        run: daemon
+      name: daemonpod
+    spec:
+      containers:
+      - image: busybox:latest
+        name: daemonpod
+        args:
+          - sleep
+          - "3600"
+```
+
+Deploy DaemonSet
+
+```bash
+kubectl apply -f daemonset.yaml
+```
+
+
+
 ## Resource Limits
 
 https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
