@@ -4,12 +4,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
+  name: nginx
   labels:
-    run: name
-  name: name
+    env: test
 spec:
   containers:
-  - image: nginx:latest
-    name: name
+  - name: nginx
+    image: nginx
 ```
 

@@ -19,6 +19,7 @@ Table of Contents
   - [Resource Limits](#resource-limits)
   - [Label Selectors](#label-selectors)
   - [Anti-Affinity](#Anti-Affinity)
+  - [Taints & Tolerations](#taints-tolerations)
 
 # Deployments
 
@@ -357,5 +358,6 @@ Add the following to the `.spec` in your `pod-antiaffinity.yaml`
 kubectl apply -f pod-antiaffinity.yaml
 ```
 
+### Taints & Tolerations
 
-
+https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
