@@ -21,6 +21,7 @@ Table of Contents
   - [Affinity](#Affinity)
   - [Anti-Affinity](#Anti-Affinity)
   - [Taints & Tolerations](#taints-tolerations)
+  - [Scheduling](#Scheduling)
 
 # Deployments
 
@@ -410,3 +411,15 @@ tolerations:
   effect: "NoSchedule"
 ```
 
+### Scheduling
+
+https://kubernetes.io/docs/tasks/extend-kubernetes/configure-multiple-schedulers/
+
+https://kubernetes.io/docs/concepts/scheduling-eviction/kube-scheduler/
+
+
+
+## Manifest Management & Common Templating Tools
+
+- Helm: https://helm.sh/docs/intro/quickstart/
+- Kustomize: https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/

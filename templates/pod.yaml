@@ -6,7 +6,7 @@ metadata:
   name: podtest
 spec:
   containers:
-  - image: nginx:latest
+  - image: busybox:latest
     name: podtest
     args:
       - sleep
