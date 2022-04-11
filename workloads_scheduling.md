@@ -282,13 +282,13 @@ Create `busybox` pod with the following:
 
 request
 
-- 1GB memory
-- half CPU?
+- 1GB memory (1Gi)
+- half CPU (500m)
 
 limit
 
-- 2GB memory
-- whole CPU
+- 2GB memory (2Gi)
+- whole CPU (1)
 
 ```yaml
 apiVersion: v1
