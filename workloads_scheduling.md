@@ -338,7 +338,7 @@ k apply -f labelselector/pod-selector.yaml
 
 Launch pod to a different node than original
 
-Add the following to `pod-antiaffinity.yaml`
+Add the following to the `.spec` in your `pod-antiaffinity.yaml`
 
 ```yaml
   affinity:

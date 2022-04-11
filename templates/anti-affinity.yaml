@@ -1,0 +1,21 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: podantiaffinity
+  name: podantiaffinity
+spec:
+  containers:
+  - image: busybox:latest
+    name: podantiaffinity
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+              - key: run
+                operator: In
+                values:
+                  - podantiaffinity
+          topologyKey: kubernetes.io/hostname
