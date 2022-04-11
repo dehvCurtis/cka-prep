@@ -290,3 +290,26 @@ limit
 - 2GB memory
 - whole CPU
 
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: podquota
+  name: podquota
+spec:
+  containers:
+  - image: busybox:latest
+    name: podquota
+    args:
+      - sleep
+      - "3600"
+    resources:
+      requests:
+        memory: "1Gi"
+        cpu: "500m"
+      limits:
+        memory: "2Gi"
+        cpu: "1"
+```
+

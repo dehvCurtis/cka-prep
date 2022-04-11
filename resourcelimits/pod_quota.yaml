@@ -1,0 +1,21 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: pod_quota
+  name: pod_quota
+spec:
+  containers:
+  - image: busybox:latest
+    name: pod_quota
+    args:
+      - sleep
+      - "3600"
+    resources:
+      requests:
+        memory: "1Gi"
+        cpu: "500m"
+      limits:
+        memory: "2Gi"
+        cpu: "1"
