@@ -18,6 +18,7 @@ Table of Contents
   - [DaemonSets](#daemonSets)
   - [Resource Limits](#resource-limits)
   - [Label Selectors](#label-selectors)
+  - [Affinity](#Affinity)
   - [Anti-Affinity](#Anti-Affinity)
   - [Taints & Tolerations](#taints-tolerations)
 
@@ -335,9 +336,17 @@ Apply yaml configuration
 k apply -f labelselector/pod-selector.yaml
 ```
 
-### Anti-Affinity
+### Affinity & Anti-Affinity
 
-Launch pod to a different node than original
+https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
+
+**Affinity**
+
+
+
+**Anti-Affinity**
+
+`requiredDuringSchedulingIgnoredDuringExecution`: The scheduler can't schedule the Pod unless the rule is met. This functions like `nodeSelector`, but with a more expressive syntax.
 
 Add the following to the `.spec` in your `pod-antiaffinity.yaml`
 
