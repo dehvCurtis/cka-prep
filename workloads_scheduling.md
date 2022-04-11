@@ -330,6 +330,7 @@ Add the following to pod yaml
 example yaml
 
 ```yaml
+---
 apiVersion: v1
 kind: Pod
 metadata:
