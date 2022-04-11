@@ -17,6 +17,7 @@ Table of Contents
   - [ReplicaSets](#replicasets)
   - [DaemonSets](#daemonSets)
   - [Resource Limits](#resource-limits)
+  - [Label Selectors](#label-selectors)
 
 # Deployments
 
@@ -311,5 +312,38 @@ spec:
       limits:
         memory: "2Gi"
         cpu: "1"
+```
+
+### Label Selectors
+
+https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
+
+Assign pod to node with `kind=special` label selector
+
+Add the following to pod yaml
+
+```yaml
+  nodeSelector:
+    kind: special
+```
+
+example yaml
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: podsel
+  name: podsel
+spec:
+  containers:
+  - image: busybox:latest
+    name: podsel
+    args:
+      - sleep
+      - "3600"
+  nodeSelector:
+    kind: special
 ```
 
