@@ -3,12 +3,12 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    run: pod_quota
-  name: pod_quota
+    run: podquota
+  name: podquota
 spec:
   containers:
   - image: busybox:latest
-    name: pod_quota
+    name: podquota
     args:
       - sleep
       - "3600"
