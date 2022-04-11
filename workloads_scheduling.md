@@ -272,8 +272,21 @@ Deploy DaemonSet
 kubectl apply -f daemonset.yaml
 ```
 
-## Resource Limits
+### Resource Limits
 
 https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
 
 https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/quota-memory-cpu-namespace/
+
+Create `busybox` pod with the following:
+
+request
+
+- 1GB memory
+- half CPU?
+
+limit
+
+- 2GB memory
+- whole CPU
+
