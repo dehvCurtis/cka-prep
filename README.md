@@ -36,6 +36,15 @@ https://github.com/cncf/curriculum/blob/master/CKA_Curriculum_v1.22.pdf
 - Understand how resource limits can affect Pod scheduling 
 - Awareness of manifest management and common templating tools
 
+20% Services & Networking
+
+- Understand host networking configuration on the cluster nodes
+- Understand connectivity between Pods
+- Understand ClusterIP, NodePort, LoadBalancer service types and endpoints
+- Know how to use Ingress controllers and Ingress resources
+- Know how to configure and use CoreDNS
+- Choose an appropriate container network interface plugin
+
 ## Useful-Links
 
 Cloud Native Foundation: https://www.cncf.io/certification/cka/
