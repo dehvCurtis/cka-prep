@@ -272,8 +272,6 @@ Deploy DaemonSet
 kubectl apply -f daemonset.yaml
 ```
 
-
-
 ## Resource Limits
 
 https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
