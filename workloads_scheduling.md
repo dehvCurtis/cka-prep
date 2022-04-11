@@ -22,7 +22,7 @@ Table of Contents
   - [Anti-Affinity](#Anti-Affinity)
   - [Taints & Tolerations](#taints-tolerations)
   - [Scheduling](#Scheduling)
-- [Manifest Management & Common Templating Tools](#Manifest-Management-Common-Templating-Tools)
+- [Manifest Management & Common Templating Tools](#Manifest-Management--Common-Templating-Tools)
 
 # Deployments
 
