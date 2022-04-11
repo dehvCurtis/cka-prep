@@ -9,10 +9,7 @@ metadata:
   name: name
 spec:
   containers:
-  - image: busybox:latest
+  - image: nginx:latest
     name: name
-    args:
-      - sleep
-      - "3600"
 ```
 

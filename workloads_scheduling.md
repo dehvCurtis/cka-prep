@@ -338,9 +338,24 @@ k apply -f labelselector/pod-selector.yaml
 
 Launch pod to a different node than original
 
-Add the following to pod yaml
+Add the following to `pod-antiaffinity.yaml`
 
 ```yaml
-
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+              - key: run
+                operator: In
+                values:
+                  - <pod-name>
+          topologyKey: kubernetes.io/hostname
 ```
+
+```bash
+kubectl apply -f pod-antiaffinity.yaml
+```
+
+
 
