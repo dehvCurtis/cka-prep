@@ -4,6 +4,11 @@ Table of Contents
 
 - [Networking configuration on the cluster nodes](#networking-configuration-on-the-cluster-nodes)
 - [Understand connectivity between Pods](#Understand-connectivity-between-Pods)
+  - ClusterIP
+  - NodePort
+  - LoadBalancer
+
+- [Ingress controllers and Ingress resources](#Ingress_controllers_and_Ingress_resources)
 
 Understand ClusterIP, NodePort, LoadBalancer service types and endpoints
 
@@ -78,4 +83,12 @@ curl <ip-address>
 
 minikube service --url test-deployment
 ```
+
+## Ingress controllers and Ingress resources
+
+https://kubernetes.io/docs/concepts/services-networking/ingress/
+
+https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/
+
+https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/
 
