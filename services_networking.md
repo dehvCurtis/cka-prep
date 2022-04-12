@@ -37,6 +37,12 @@ https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
 
 `NodePort`: Exposes the Service on each Node's IP at a static port (the `NodePort`). A `ClusterIP` Service, to which the `NodePort` Service routes, is automatically created. You'll be able to contact the `NodePort` Service, from outside the cluster, by requesting `<NodeIP>:<NodePort>`
 
+If on minikube, start tunnel
+
+```bash
+minikube tunnel --cleanup
+```
+
 Create a deployment with the latest nginx image and two replicas
 
 ```bash
@@ -49,22 +55,18 @@ Expose it's port 80 through a service of type NodePort
 kubectl expose deployment nodeport-deploy --port=80 --target-port=80 --type=NodePort
 ```
 
-Confirm service
+Confirm service & Retrieve `Endpoint` and `NodePort`
 
 ```bash
 kubectl describe svc nodeport-deploy
 ```
 
-Retrieve `Endpoint` and `NodePort`
-
-```bash
-kubectl describe svc nodeport-deploy
-```
-
-Confirm `NodePort` via `curl`
+Confirm `NodePort` via `curl` or browser
 
 ```bash
 curl <ip-address>
+
+minikube service --url <service-name>
 ```
 
 ### LoadBalancer
