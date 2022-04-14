@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: envar-test
+spec:
+  containers:
+  - name: envvar-test-container
+    image: gcr.io/google-samples/node-hello:1.0
+    env:
+      - name: TEST
+        value: "this is a test"
+      - name: TEST1
+        value: "test 1"

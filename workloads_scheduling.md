@@ -152,9 +152,10 @@ kubectl create configmap test-config-3 --from-literal blue=blueberry
 
 https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/
 
-Create a pod using latest `nginx` image with an environment variable
+Create a pod with an environment variable
 
 ```bash
+# Imperative
 kubectl run pod-test -n test --image=nginx --env=TEST=test
 ```
 
@@ -163,6 +164,31 @@ Exec into pod to confirm environment variable
 ```bash
 kubectl exec pod-test -n test -- env | grep TEST
 ```
+
+```yaml
+# Declarative
+apiVersion: v1
+kind: Pod
+metadata:
+  name: envar-test
+  labels:
+    purpose: test-envars
+spec:
+  containers:
+  - name: envar-test-container
+    image: gcr.io/google-samples/node-hello:1.0
+    env:
+    - name: TEST
+      value: "this is a test"
+    - name: DEMO
+      value: "this is also a test"
+```
+
+```bash
+kubectl exec envar-test -n test -- env | grep TEST
+```
+
+
 
 ### Secrets
 
