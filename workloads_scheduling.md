@@ -282,8 +282,6 @@ Confirm Secret as Env Var
 k exec secret-env-pod -- env | sort
 ```
 
-
-
 ## Scale Applications
 
 ### Scale Application
@@ -299,12 +297,6 @@ https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
 https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
 
 ```bash
-# Configure metrics server
-git clone https://github.com/kubernetes-sigs/metrics-server
-
-# Deploy the metrics server
-kubectl apply -k metrics-server/manifests/base/
-
 # Autoscale a deployment
 kubectl create deployment autoscalable --image=nginx:latest
 kubectl autoscale deployment autoscalable --min=2 --max=6 --cpu-percent=70
