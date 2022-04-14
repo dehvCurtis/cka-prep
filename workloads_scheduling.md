@@ -249,7 +249,34 @@ kubectl edit secret test-secret
 
 Use secret as environment variables
 
-```bash
+```yaml
+# Declarative
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secret-env-pod
+spec:
+  containers:
+  - name: mycontainer
+    image: redis
+    env:
+      - name: SECRET_USERNAME
+        valueFrom:
+          secretKeyRef:
+            name: mysecret
+            key: username
+            optional: false # same as default; "mysecret" must exist
+                            # and include a key named "username"
+      - name: SECRET_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: mysecret
+            key: password
+            optional: false # same as default; "mysecret" must exist
+                            # and include a key named "password"
+  restartPolicy: Never
 ```
 
 ## Scale Applications
