@@ -45,7 +45,27 @@ kubectl create deployment test-deployment -n test --image=nginx:1.19 --replicas=
 
 ```yaml
 # Create deployment & replicas - Declarative
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-app-gcr-deployment
+  labels:
+    app: hello-app-gcr
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-app-gcr
+  template:
+    metadata:
+      labels:
+        app: hello-app-gcr
+    spec:
+      containers:
+      - name: hello-app-gcr
+        image: gcr.io/google-samples/hello-app:2.0
+        ports:
+        - containerPort: 80
 ```
 
 Confirm deployment is functional
