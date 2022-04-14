@@ -215,13 +215,13 @@ Create secret from literal
 
 ```bash
 # Create secret using literals
-kubectl create secret generic test-secret --from-literal=testkey='testvalue'
+kubectl create secret generic creds --from-literal=testkey='testvalue'
 
 # Confirm secrets
-kubectl get secret test-secret -o jsonpath='{.data}'
+kubectl get secret creds -o jsonpath='{.data}'
 
 # Decode secret
-kubectl get secret test-secret -o jsonpath={'.data.testkey'} | base64 --decode
+kubectl get secret creds -o jsonpath={'.data.testkey'} | base64 --decode
 ```
 
 Create secret from `.env` file
@@ -262,22 +262,27 @@ spec:
   - name: mycontainer
     image: redis
     env:
-      - name: SECRET_USERNAME
+      - name: K8S_USERNAME
         valueFrom:
           secretKeyRef:
-            name: mysecret
+            name: creds
             key: username
-            optional: false # same as default; "mysecret" must exist
-                            # and include a key named "username"
-      - name: SECRET_PASSWORD
+            optional: false
+      - name: K8S_PASSWORD
         valueFrom:
           secretKeyRef:
-            name: mysecret
+            name: creds
             key: password
-            optional: false # same as default; "mysecret" must exist
-                            # and include a key named "password"
-  restartPolicy: Never
+            optional: false
 ```
+
+Confirm Secret as Env Var
+
+```bash
+k exec secret-env-pod -- env | sort
+```
+
+
 
 ## Scale Applications
 
