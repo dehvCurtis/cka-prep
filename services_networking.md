@@ -42,13 +42,47 @@ https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
 
 `NodePort`: Exposes the Service on each Node's IP at a static port (the `NodePort`). A `ClusterIP` Service, to which the `NodePort` Service routes, is automatically created. You'll be able to contact the `NodePort` Service, from outside the cluster, by requesting `<NodeIP>:<NodePort>`
 
+Create a Deployment:
+
+```shell
+kubectl create deployment web --image=gcr.io/google-samples/hello-app:1.0
+```
+
+Expose Deployment:
+
+```bash
+kubectl expose deployment web --type=NodePort --port=8080
+```
+
+Verify Service is created and is available on a node port:
+
+```shell
+kubectl get svc web
+```
+
+if on `minikube`, retrieve Service via NodePort :
+
+```shell
+minikube svc web --url
+```
+
+The output is similar to:
+
+```bash
+Hello, world!
+Version: 1.0.0
+Hostname: web-55b8c6998d-8k564
+```
+
+You can now access the sample app via the Minikube IP address and NodePort. The next step lets you access the app using the Ingress resource
+
 ### LoadBalancer
 
 [`LoadBalancer`](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer): Exposes the Service externally using a cloud provider's load balancer. `NodePort` and `ClusterIP` Services, to which the external load balancer routes, are automatically created.
 
 **Create `NodePort` & `LoadBalancer`**
 
-*If on minikube, start tunnel*
+*If on `minikube`, start tunnel*
 
 ```bash
 minikube tunnel --cleanup
