@@ -4,5 +4,5 @@ metadata:
   name: podtest
 spec:
   containers:
-  - image: nginx:alpine
+  - image: gcr.io/google-samples/hello-app:2.0
     name: podtest
