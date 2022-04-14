@@ -39,8 +39,13 @@ Create Deployment
 # Create the namespace
 kubectl create ns test
 
-# Create deployment & replicas
+# Create deployment & replicas - Imperative
 kubectl create deployment test-deployment -n test --image=nginx:1.19 --replicas=3
+```
+
+```yaml
+# Create deployment & replicas - Declarative
+
 ```
 
 Confirm deployment is functional
