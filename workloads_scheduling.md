@@ -188,8 +188,6 @@ spec:
 kubectl exec envar-test -n test -- env | grep TEST
 ```
 
-
-
 ### Secrets
 
 https://kubernetes.io/docs/concepts/configuration/secret/
