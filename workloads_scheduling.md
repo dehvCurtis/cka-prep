@@ -170,12 +170,12 @@ kubectl exec pod-test -n test -- env | grep TEST
 apiVersion: v1
 kind: Pod
 metadata:
-  name: envar-test
+  name: envvar-test
   labels:
     purpose: test-envars
 spec:
   containers:
-  - name: envar-test-container
+  - name: envvar-test-container
     image: gcr.io/google-samples/node-hello:1.0
     env:
     - name: TEST
