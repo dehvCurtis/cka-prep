@@ -316,6 +316,8 @@ A deployment uses a replicaset object to maintain the right number of desired re
 
 ### DaemonSets
 
+A `DaemonSet` ensures that all (or some) Nodes run a copy of a Pod.
+
 https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
 
 Create DaemonSet with latest busybox image and see that it runs on all nodes.
