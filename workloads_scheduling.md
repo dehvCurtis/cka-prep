@@ -347,7 +347,7 @@ spec:
           - "3600"
 ```
 
-Deploy DaemonSet
+Deploy `DaemonSet`
 
 ```bash
 kubectl apply -f daemonset.yaml
