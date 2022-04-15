@@ -359,7 +359,7 @@ https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
 
 https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/quota-memory-cpu-namespace/
 
-Create `busybox` pod with the following:
+Create `nginx:alpine` pod with the following:
 
 request
 
@@ -380,11 +380,8 @@ metadata:
   name: podquota
 spec:
   containers:
-  - image: busybox:latest
+  - image: nginx:alpine
     name: podquota
-    args:
-      - sleep
-      - "3600"
     resources:
       requests:
         memory: "1Gi"
@@ -488,6 +485,8 @@ tolerations:
 ```
 
 ### Scheduling
+
+https://kubernetes.io/docs/reference/command-line-tools-reference/kube-scheduler/
 
 https://kubernetes.io/docs/tasks/extend-kubernetes/configure-multiple-schedulers/
 
