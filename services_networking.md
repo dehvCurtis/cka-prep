@@ -126,3 +126,11 @@ https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/
 
 https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/
 
+**Create Ingress Controller**
+
+*note: if using `minikube` you need to enable ingress*
+
+```bash
+minikube addons enable ingress	
+```
+
