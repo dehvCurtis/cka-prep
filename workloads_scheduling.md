@@ -21,7 +21,7 @@ Table of Contents
   - [Affinity](#Affinity)
   - [Anti-Affinity](#Anti-Affinity)
   - [Taints & Tolerations](#taints-tolerations)
-  - [Scheduling](#Scheduling)
+  - [Scheduler](#Scheduler)
 - [Manifest Management & Common Templating Tools](#Manifest-Management--Common-Templating-Tools)
 
 # Deployments
@@ -484,7 +484,9 @@ tolerations:
   effect: "NoSchedule"
 ```
 
-### Scheduling
+### Scheduler
+
+The Kubernetes scheduler is a control plane process which assigns Pods to Nodes. 
 
 https://kubernetes.io/docs/reference/command-line-tools-reference/kube-scheduler/
 
