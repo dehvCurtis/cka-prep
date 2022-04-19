@@ -134,3 +134,55 @@ https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/
 minikube addons enable ingress	
 ```
 
+Deploy `hello-world` app
+
+```shell
+kubectl create deployment web --image=gcr.io/google-samples/hello-app:1.0
+```
+
+Create `ingress.yaml` from the following file
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+    - host: hello-world.info
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: web
+                port:
+                  number: 8080
+```
+
+Create the Ingress object
+
+```shell
+kubectl apply -f ingress.yaml
+```
+
+Verify the IP address is set:
+
+```shell
+kubectl get ingress
+```
+
+Add the IP resolution to `/etc/hosts` file 
+
+```
+<ip-address> hello-world.info
+```
+
+Verify that the Ingress controller is directing traffic:
+
+```shell
+curl hello-world.info
+```
