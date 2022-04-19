@@ -7,8 +7,8 @@ Table of Contents
   - ClusterIP
   - NodePort
   - LoadBalancer
-
 - [Ingress controllers and Ingress resources](#Ingress_controllers_and_Ingress_resources)
+- [Configure and Use CoreDNS](#configure-and-use-CoreDNS)
 
 Understand ClusterIP, NodePort, LoadBalancer service types and endpoints
 
@@ -186,3 +186,5 @@ Verify that the Ingress controller is directing traffic:
 ```shell
 curl hello-world.info
 ```
+
+## Configure and Use CoreDNS
