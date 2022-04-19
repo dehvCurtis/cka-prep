@@ -188,3 +188,7 @@ curl hello-world.info
 ```
 
 ## Configure and Use CoreDNS
+
+https://kubernetes.io/docs/concepts/services-networking/dns-pod-service
+
+https://kubernetes.io/docs/tasks/administer-cluster/coredns
