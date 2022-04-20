@@ -36,7 +36,7 @@ Create Deployment
 
 
 ```bash
-# Create the namespace
+# Create a namespace
 kubectl create ns test
 
 # Create deployment & replicas - Imperative
