@@ -4,6 +4,7 @@ Understand storage classes, persistent volumes
 
 Table of Contents
 
+- StorageClasses
 - [Persistent Volume](#Persistent-Volume)
   - [Configure Pod to Use PersistentVolume for Storage](#Configure-Pod-to-Use-PersistentVolume-for-Storage)
 

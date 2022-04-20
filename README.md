@@ -45,6 +45,13 @@ https://github.com/cncf/curriculum/blob/master/CKA_Curriculum_v1.22.pdf
 - Know how to configure and use CoreDNS
 - Choose an appropriate container network interface plugin
 
+### 10% Storage
+
+- Understand storage classes, persistent volumes
+- Understand volume mode, access modes and reclaim policies for volumes
+- Understand persistent volume claims primitive
+- Know how to configure applications with persistent storage
+
 ## Useful-Links
 
 Cloud Native Foundation: https://www.cncf.io/certification/cka/
