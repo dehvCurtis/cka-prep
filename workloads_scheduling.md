@@ -40,7 +40,7 @@ Create Deployment
 kubectl create ns test
 
 # Create deployment & replicas - Imperative
-kubectl create deployment test-deployment -n test --image=nginx:1.19 --replicas=3
+kubectl create deployment test-deployment -n test --image=nginx:1.19 --replicas=3 -o yaml
 ```
 
 ```yaml
