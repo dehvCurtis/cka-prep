@@ -32,7 +32,14 @@ Table of Contents
 
 Overview of Deployments https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 
-Create Deployment
+Create *.yaml for deployment
+
+```shell
+# Create deployment with output flag and dryrun flag
+kubectl create deployment test-deployment --dry-run --image=nginx:1.19 -o yaml
+```
+
+Create Deployment imperative
 
 
 ```bash
