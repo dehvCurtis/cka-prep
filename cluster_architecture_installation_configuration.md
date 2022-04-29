@@ -1,19 +1,12 @@
 # Cluster Architecture, Installation & Configuration (25%)
 
-# Cluster Architecture, Installation & Configuration (25%)
-
 ## Manage role-based access control (RBAC)
 
 Doc: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 
 ## Use KubeADM to install a basic cluster
 
-<details><summary>Solution</summary>
-<p>
 ### Install container runtime
-
-<details><summary>Solution</summary>
-<p>
 
 Doc: https://kubernetes.io/docs/setup/production-environment/container-runtimes/
 
@@ -71,13 +64,7 @@ containerd config default | sudo tee /etc/containerd/config.toml
 sudo systemctl restart containerd
 ```
 
-</p>
-</details>
-
 ### Install kubeadm, kubelet and kubectl
-
-<details><summary>Solution</summary>
-<p>
 
 Doc: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
 
@@ -93,13 +80,7 @@ sudo apt-get install -y kubelet=1.20.7-00 kubeadm=1.20.7-00 kubectl=1.20.7-00
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
 
-</p>
-</details>
-
 ### Create a cluster with KubeADM
-
-<details><summary>Solution</summary>
-<p>
 
 Doc: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
 
@@ -127,13 +108,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 ```
 
-</p>
-</details>
-
 ### Check that your nodes are running and ready
-
-<details><summary>Solution</summary>
-<p>
 
 ```bash
 kubectl get nodes
@@ -143,16 +118,7 @@ k8s-node-1         Ready    <none>                 2m7s    v1.20.7
 k8s-node-2         Ready    <none>                 117s    v1.20.7
 ```
 
-</p>
-</details>
-
-</p>
-</details>
-
 ## Provision underlying infrastructure to deploy a Kubernetes cluster
-
-<details><summary>Solution</summary>
-<p>
 
 You can use any cloud provider (AWS, Azure, GCP, OpenStack, etc.) and multiple tools to provision nodes for your Kubernetes cluster.
 
@@ -184,14 +150,8 @@ terraform init
 terraform plan
 terraform apply
 ```
-w
-</p>
-</details>
 
 ## Perform a version upgrade on a Kubernetes cluster using KubeADM
-
-<details><summary>Solution</summary>
-<p>
 
 Doc: https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/
 
@@ -259,13 +219,7 @@ k8s-node-1         Ready    <none>                 21m   v1.21.1
 k8s-node-2         Ready    <none>                 21m   v1.21.1
 ```
 
-</p>
-</details>
-
 ### Facilitate operating system upgrades
-
-<details><summary>Solution</summary>
-<p>
 
 When having a one master node in you cluster, you cannot upgrade the OS system (with reboot) without loosing temporarily access to your cluster.
 
@@ -286,18 +240,9 @@ sudo reboot
 kubectl uncordon k8s-node-1
 ```
 
-</p>
-</details>
-
 ## Implement etcd backup and restore
 
-<details><summary>Solution</summary>
-<p>
-
 ### Backup etcd cluster
-
-<details><summary>Solution</summary>
-<p>
 
 Doc: https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/#backing-up-an-etcd-cluster
 
@@ -329,18 +274,8 @@ ETCDCTL_API=3 sudo etcdctl --write-out=table snapshot status snapshot.db
 +----------+----------+------------+------------+
 ```
 
-</p>
-</details>
 
 ### Restore an etcd cluster from a snapshot
 
-<details><summary>Solution</summary>
-<p>
-
 Doc: https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/#backing-up-an-etcd-cluster
 
-</p>
-</details>
-
-</p>
-</details>
