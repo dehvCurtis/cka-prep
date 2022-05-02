@@ -12,7 +12,7 @@ https://github.com/cncf/curriculum/blob/master/CKA_Curriculum_v1.22.pdf
 
 | Domain                                                       | Weight |
 | ------------------------------------------------------------ | ------ |
-| Cluster Architecture, Installation & Configuration           | 25%    |
+| [Cluster Architecture, Installation & Configuration](#https://github.com/dehvCurtis/cka-prep/blob/main/cluster_architecture_installation_configuration.md) | 25%    |
 | [Workloads & Scheduling](https://github.com/dehvCurtis/cka-prep/blob/main/workloads_scheduling.md) | 15%    |
 | [Services & Networking](https://github.com/dehvCurtis/cka-prep/blob/main/services_networking.md) | 20%    |
 | [Storage](https://github.com/dehvCurtis/cka-prep/blob/main/storage.md) | 10%    |
