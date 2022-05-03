@@ -27,6 +27,9 @@ Doc: https://kubernetes.io/docs/setup/production-environment/container-runtimes/
 Do this on all three nodes:
 
 ```bash
+# disable swap (required by cluster)
+swapoff -a
+
 # containerd preinstall configuration
 cat <<EOF | sudo tee /etc/modules-load.d/containerd.conf
 overlay
