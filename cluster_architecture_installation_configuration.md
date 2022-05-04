@@ -284,7 +284,6 @@ sudo mv etcd-v3.4.13-linux-amd64/etcdctl /usr/local/bin
 
 # Gather control-plane endpoint IP
 kubectl get nodes -o wide
-export ENDPOINT=<endpoint-ip-address>
 
 # Get etcd pod name from kube-system namespace
 k -n kube-system get pods
@@ -299,7 +298,7 @@ etcdctl --help | grep -A 25 OPTIONS
 export ETCDCTL_API=3
 
 # create etcd snapshot
-etcdctl --endpoint=$ENDPOINT:2379 \
+etcdctl --endpoint=<endpoint-ip>:2379 \
 --cert="" \
 --cacert="" \
 --key="" \
