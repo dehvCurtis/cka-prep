@@ -315,9 +315,9 @@ Doc: https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/
 
 ```shell
 # Restore from endpoint location
-ETCDCTL_API=3 etcdctl --endpoints <ip-address>:2379 snapshot restore snapshotdb
+ETCDCTL_API=3 etcdctl --endpoints <ip-address>:2379 snapshot restore <snapshot-name>
 
 # Restore from directory
-ETCDCTL_API=3 etcdctl --data-dir <data-dir-location> snapshot restore snapshotdb
+ETCDCTL_API=3 etcdctl --data-dir <data-dir-location> snapshot restore <snapshot-name>
 ```
 
