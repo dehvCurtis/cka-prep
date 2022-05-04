@@ -44,19 +44,9 @@ Create an `nginx` pod with a liveness and a readiness probe for the port 80.
 kubectl create deployment <deployment-name> --dry-run --image=nginx:1.20 -o yaml > pod-probe.yaml
 ```
 
-Add `readinessProbe` and `livenessProbe` to the file `pod-probe.yaml`
+Add `readinessProbe` and `livenessProbe` to the `spec.containers` in file `pod-probe.yaml`
 
 ```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: nginx
-  labels:
-    run: nginx
-spec:
-  containers:
-  - name: nginx
-    image: nginx:latest
     readinessProbe:
       httpGet:
         path: /
