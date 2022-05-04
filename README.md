@@ -59,7 +59,7 @@ https://github.com/cncf/curriculum/blob/master/CKA_Curriculum_v1.22.pdf
 - Manage container stdout & stderr logs
 - Troubleshoot application failure
 - Troubleshoot cluster component failure
-- Troubleshoot networking                    
+- Troubleshoot networking
 
 ## Useful-Links
 

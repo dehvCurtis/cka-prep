@@ -5,6 +5,12 @@ Table of Contents
 - [Evaluate cluster and node logging](#Evaluate-cluster-and-node-logging)
   - [Get cluster components logs](#Get-cluster-components-logs)
 - [Understand how to monitor applications](#Understand-how-to-monitor-applications)
+  - [Understand how to monitor all cluster components](#Understand-how-to-monitor-all-cluster-components)
+
+- Manage container stdout & stderr logs
+- Troubleshoot application failure
+- Troubleshoot cluster component failure
+- Troubleshoot networking
 
 ## Evaluate cluster and node logging
 
@@ -33,7 +39,13 @@ Doc: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness
 
 Create an `nginx` pod with a liveness and a readiness probe for the port 80.
 
-`pod-probe.yaml`
+```shell
+# Create yaml
+kubectl create deployment <deployment-name> --dry-run --image=nginx:1.20 -o yaml > pod-probe.yaml
+```
+
+Add `readinessProbe` and `livenessProbe` to the file `pod-probe.yaml`
+
 ```yaml
 apiVersion: v1
 kind: Pod
