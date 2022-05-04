@@ -305,7 +305,7 @@ etcdctl --endpoint=<endpoint-ip>:2379 \
 save snapshot <snapshot-name>
 
 # View snapshot
-sudo etcdctl --write-out=table snapshot status <snapshot-name>
+sudo etcdctl snapshot status <snapshot-name> --write-out=table 
 ```
 
 
