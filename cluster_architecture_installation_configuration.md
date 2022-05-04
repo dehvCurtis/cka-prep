@@ -299,7 +299,7 @@ etcdctl --help | grep -A 25 OPTIONS
 export ETCDCTL_API=3
 
 # create etcd snapshot
-etcdctl --endpoint=$ENDPOINT \
+etcdctl --endpoint=$ENDPOINT:2379 \
 --cert="" \
 --cacert="" \
 --key="" \
@@ -313,4 +313,12 @@ sudo etcdctl --write-out=table snapshot status <snapshot-name>
 ### Restore an etcd cluster from a snapshot
 
 Doc: https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/#backing-up-an-etcd-cluster
+
+```shell
+# Restore from endpoint location
+ETCDCTL_API=3 etcdctl --endpoints <ip-address>:2379 snapshot restore snapshotdb
+
+# Restore from directory
+ETCDCTL_API=3 etcdctl --data-dir <data-dir-location> snapshot restore snapshotdb
+```
 
