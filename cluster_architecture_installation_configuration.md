@@ -276,22 +276,37 @@ Go Version: go1.12.17
 Go OS/Arch: linux/amd64
 ```
 
-```bash
-# Download etcd client
+```shell
+# Download/Install etcd client
 wget https://github.com/etcd-io/etcd/releases/download/v3.4.13/etcd-v3.4.13-linux-amd64.tar.gz
 tar xzvf etcd-v3.4.13-linux-amd64.tar.gz
 sudo mv etcd-v3.4.13-linux-amd64/etcdctl /usr/local/bin
 
-# save etcd snapshot
-sudo ETCDCTL_API=3 etcdctl snapshot save --endpoints 172.16.1.11:2379 snapshot.db --cacert /etc/kubernetes/pki/etcd/server.crt --cert /etc/kubernetes/pki/etcd/ca.crt --key /etc/kubernetes/pki/etcd/ca.key
+# Gather control-plane endpoint IP
+kubectl get nodes -o wide
+export ENDPOINT=<endpoint-ip-address>
 
-# View the snapshot
-ETCDCTL_API=3 sudo etcdctl --write-out=table snapshot status snapshot.db 
-+----------+----------+------------+------------+
-|   HASH   | REVISION | TOTAL KEYS | TOTAL SIZE |
-+----------+----------+------------+------------+
-| 4056f9fc |    18821 |        809 |     4.1 MB |
-+----------+----------+------------+------------+
+# Get etcd pod name from kube-system namespace
+k -n kube-system get pods
+
+# grep to output cert info
+k -n kube-system describe pod <etcd-pod> | grep "\-\-"
+
+# output needed arguments
+etcdctl --help | grep -A 25 OPTIONS
+
+# etcdctl api env var
+export ETCDCTL_API=3
+
+# create etcd snapshot
+etcdctl --endpoint=$ENDPOINT \
+--cert="" \
+--cacert="" \
+--key="" \
+save snapshot <snapshot-name>
+
+# View snapshot
+sudo etcdctl --write-out=table snapshot status <snapshot-name>
 ```
 
 
