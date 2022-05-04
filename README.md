@@ -16,7 +16,7 @@ https://github.com/cncf/curriculum/blob/master/CKA_Curriculum_v1.22.pdf
 | [Workloads & Scheduling](https://github.com/dehvCurtis/cka-prep/blob/main/workloads_scheduling.md) | 15%    |
 | [Services & Networking](https://github.com/dehvCurtis/cka-prep/blob/main/services_networking.md) | 20%    |
 | [Storage](https://github.com/dehvCurtis/cka-prep/blob/main/storage.md) | 10%    |
-| Troubleshooting                                              | 30%    |
+| [Troubleshooting](https://github.com/dehvCurtis/cka-prep/blob/main/troubleshooting.md) | 30%    |
 
 ### 25% - Cluster Architecture, Installation & Configuration
 
@@ -51,6 +51,15 @@ https://github.com/cncf/curriculum/blob/master/CKA_Curriculum_v1.22.pdf
 - Understand volume mode, access modes and reclaim policies for volumes
 - Understand persistent volume claims primitive
 - Know how to configure applications with persistent storage
+
+### 30% Storage
+
+- Evaluate cluster and node logging
+- Understand how to monitor applications
+- Manage container stdout & stderr logs
+- Troubleshoot application failure
+- Troubleshoot cluster component failure
+- Troubleshoot networking                    
 
 ## Useful-Links
 

@@ -1,37 +1,39 @@
 # Troubleshooting (30%)
 
+Table of Contents
+
+- [Evaluate cluster and node logging](#Evaluate-cluster-and-node-logging)
+  - [Get cluster components logs](#Get-cluster-components-logs)
+- [Understand how to monitor applications](#Understand-how-to-monitor-applications)
+
 ## Evaluate cluster and node logging
 
-Questions:
-- Get cluster components logs.
-
-Logs depend on how your cluster was deployed.
-
-For our deployment done in [Cluster Architecture, Installation & Configuration](https://github.com/alijahnas/CKA-practice-exercises/blob/CKA-v1.20/cluster-architecture-installation-configuration.md) here is how to get logs.
+### Get cluster components logs
 
 ```bash
 # Kubelet on all nodes
 sudo journalctl -u kubelet
 
+# Get pods in kube-system namespace
+kubectl -n kube-system get pods
+
 # API server
-kubectl -n kube-system logs kube-apiserver-k8s-controlplane
+kubectl -n kube-system logs <kube-apiserver-pod>
 
 # Controller Manager
-kubectl -n kube-system logs kube-controller-manager-k8s-controlplane
+kubectl -n kube-system logs <kube-controller-manager>
 
 # Scheduler
-kubectl -n kube-system logs kube-scheduler-k8s-controlplane
-
+kubectl -n kube-system logs <kube-scheduler>
 ```
 
 ## Understand how to monitor applications
 
 Doc: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
 
-Questions:
-- Create an nginx pod with a liveness and a readiness probe for the port 80.
+Create an `nginx` pod with a liveness and a readiness probe for the port 80.
 
-pod-ness.yaml:
+`pod-probe.yaml`
 ```yaml
 apiVersion: v1
 kind: Pod
