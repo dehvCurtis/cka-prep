@@ -5,8 +5,6 @@ Table of Contents
 - [Evaluate cluster and node logging](#Evaluate-cluster-and-node-logging)
   - [Get cluster components logs](#Get-cluster-components-logs)
 - [Understand how to monitor applications](#Understand-how-to-monitor-applications)
-  - [Understand how to monitor all cluster components](#Understand-how-to-monitor-all-cluster-components)
-
 - Manage container stdout & stderr logs
 - Troubleshoot application failure
 - Troubleshoot cluster component failure
@@ -72,63 +70,11 @@ kubectl describe pods <pod>
 
 ```
 
-### Understand how to monitor all cluster components
-
-Doc: https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/
-
-Questions:
-- Install the metrics server and show metrics for nodes and for pods in `kube-system` namespace.
-
-```bash
-git clone https://github.com/kubernetes-sigs/metrics-server
-# Add --kubelet-insecure-tls to metrics-server/manifests/base/deployment.yaml if necessary
-...
-      containers:
-      - name: metrics-server
-        image: gcr.io/k8s-staging-metrics-server/metrics-server:master
-        imagePullPolicy: IfNotPresent
-        args:
-          - --cert-dir=/tmp
-          - --secure-port=443
-          - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
-          - --kubelet-use-node-status-port
-          - --metric-resolution=15s
-          - --kubelet-insecure-tls
-...
-
-# Deploy the metrics server
-kubectl apply -k metrics-server/manifests/base/
-
-# Wait for the server to get metrics and show them
-kubectl top nodes
-NAME               CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%
-k8s-controlplane   271m         13%    1075Mi          28%
-k8s-node-1         115m         5%     636Mi           33%
-k8s-node-2         97m          4%     564Mi           29%
-
-kubectl top pods -n kube-system
-NAME                                       CPU(cores)   MEMORY(bytes)
-coredns-558bd4d5db-6cdkr                   6m           11Mi
-coredns-558bd4d5db-k9qxs                   5m           19Mi
-etcd-k8s-controlplane                      27m          71Mi
-kube-apiserver-k8s-controlplane            112m         312Mi
-kube-controller-manager-k8s-controlplane   34m          56Mi
-kube-flannel-ds-nr5ms                      4m           11Mi
-kube-flannel-ds-vl79c                      5m           13Mi
-kube-flannel-ds-xvp8z                      7m           14Mi
-kube-proxy-jjvc9                           2m           20Mi
-kube-proxy-mwwnn                           1m           17Mi
-kube-proxy-wr4v7                           1m           21Mi
-kube-scheduler-k8s-controlplane            8m           18Mi
-metrics-server-ffc48cc6c-g92v8             6m           16Mi
-```
-
 ## Manage container stdout & stderr logs
 
 Doc: https://kubernetes.io/docs/concepts/cluster-administration/logging/
 
-Questions:
-- Get logs from the nginx pod deployed earlier and redirect them to a file.
+Get logs from the nginx pod deployed earlier and redirect them to a file.
 
 ```bash
 kubectl logs nginx > nginx.log
