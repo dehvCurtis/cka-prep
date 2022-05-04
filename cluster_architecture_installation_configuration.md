@@ -277,6 +277,11 @@ Go OS/Arch: linux/amd64
 ```
 
 ```bash
+# Download etcd client
+wget https://github.com/etcd-io/etcd/releases/download/v3.4.13/etcd-v3.4.13-linux-amd64.tar.gz
+tar xzvf etcd-v3.4.13-linux-amd64.tar.gz
+sudo mv etcd-v3.4.13-linux-amd64/etcdctl /usr/local/bin
+
 # save etcd snapshot
 sudo ETCDCTL_API=3 etcdctl snapshot save --endpoints 172.16.1.11:2379 snapshot.db --cacert /etc/kubernetes/pki/etcd/server.crt --cert /etc/kubernetes/pki/etcd/ca.crt --key /etc/kubernetes/pki/etcd/ca.key
 
