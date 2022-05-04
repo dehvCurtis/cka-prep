@@ -60,8 +60,11 @@ Add `readinessProbe` and `livenessProbe` to the `spec.containers` in file `pod-p
 ```
 
 ```bash
-kubectl apply -f pod-ness.yaml
-kubectl describe pods nginx
+# Create pod
+kubectl apply -f pod-probe.yaml
+
+# Confirm probes
+kubectl describe pods <pod>
 ...
     Liveness:       http-get http://:80/ delay=0s timeout=1s period=10s #success=1 #failure=3
     Readiness:      http-get http://:80/ delay=5s timeout=1s period=5s #success=1 #failure=3
