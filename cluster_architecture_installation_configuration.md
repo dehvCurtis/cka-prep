@@ -294,7 +294,7 @@ etcdctl --endpoints=<endpoint-ip>:2379 \
 --cert="" \
 --cacert="" \
 --key="" \
-save snapshot <snapshot-name>
+snapshot save <snapshot-name>
 
 # View snapshot
 sudo etcdctl snapshot status <snapshot-name> --write-out=table 
@@ -316,7 +316,7 @@ ETCDCTL_API=3 etcdctl --data-dir <data-dir-location> snapshot restore <snapshot-
 ### Check Certificate Information
 
 ```shell
-# gather cert info from etcd
+# Gathering cert info for etcd
 
 # get pods
 kubectl -n kube-system get pods
@@ -329,6 +329,6 @@ find /etc/kubernetes/manifests
 cat /etc/kubernetes/manifests/etcd.yaml
 
 # get cert expirey info
-openssl x509 -noout -text -in <server-cert>
+openssl x509 -text -in <server-cert>
 ```
 
