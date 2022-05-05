@@ -298,7 +298,7 @@ etcdctl --help | grep -A 25 OPTIONS
 export ETCDCTL_API=3
 
 # create etcd snapshot
-etcdctl --endpoint=<endpoint-ip>:2379 \
+etcdctl --endpoints=<endpoint-ip>:2379 \
 --cert="" \
 --cacert="" \
 --key="" \
@@ -319,5 +319,24 @@ ETCDCTL_API=3 etcdctl --endpoints <ip-address>:2379 snapshot restore <snapshot-n
 
 # Restore from directory
 ETCDCTL_API=3 etcdctl --data-dir <data-dir-location> snapshot restore <snapshot-name>
+```
+
+### Check Certificate Information
+
+```shell
+# gather cert info from etcd
+
+# get pods
+kubectl -n kube-system get pods
+
+# retrieve cert info via describe pod
+kubectl -n kube-system describe pod <etc-pod>
+
+# retrieve cert info via kubenetes manifest
+find /etc/kubernetes/manifests
+cat /etc/kubernetes/manifests/etcd.yaml
+
+# get cert expirey info
+openssl x509 -noout -text -in <server-cert>
 ```
 

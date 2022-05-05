@@ -45,16 +45,18 @@ kubectl create deployment <deployment-name> --dry-run --image=nginx:1.20 -o yaml
 Add `readinessProbe` and `livenessProbe` to the `spec.containers` in file `pod-probe.yaml`
 
 ```yaml
-    readinessProbe:
-      httpGet:
-        path: /
-        port: 80
+readinessProbe:
+  httpGet:
+    path: /health
+    port: 80
       initialDelaySeconds: 5
       periodSeconds: 5
-    livenessProbe:
-      httpGet:
-        path: /
-        port: 80
+
+
+livenessProbe:
+  httpGet:
+    path: /health
+    port: 80
 ```
 
 ```bash
@@ -84,11 +86,11 @@ kubectl logs nginx > nginx.log
 
 Doc: https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/
 
-Questions:
-- Launch a pod with a busybox container that launches with the `sheep 3600` command (this command doesn't exist.
+- Launch a pod with a `busybox` container that launches with the `sheeep 3600` command (this command doesn't exist.
 - Get the logs from the pod, then correct the error to make it launch `sleep 3600`.
 
-podfail.yaml:
+`podfail.yaml`
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -108,7 +110,7 @@ spec:
 ```bash
 kubectl apply -f podfail.yaml
 
-kubectl describe pods podfail
+kubectl describe pods <pod-name>
 ...
 Warning  Failed     5s (x2 over 6s)  kubelet            Error: failed to create containerd task: OCI runtime create failed: container_linux.go:367: starting container process caused: exec: "sheep": executable file not found in $PATH: unknown
 ...
@@ -145,8 +147,7 @@ kubectl -n kube-system logs kube-scheduler-k8s-controlplane
 
 Doc: https://kubernetes.io/docs/tasks/debug-application-cluster/debug-cluster/
 
-Questions:
-- Check the node status and the system logs for kubelet on the failing node.
+Check the node status and the system logs for kubelet on the failing node.
 
 ```bash
 kubectl describe node k8s-node-1
@@ -159,9 +160,7 @@ sudo journalctl -u kubelet | grep -i error
 
 Doc: https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/
 
-Questions:
-- Check the `kube-dns` service running in the `kube-system` namespace and check the endpoints behind the service. Check the pods that serve the endpoints.
-
+Check the `kube-dns` service running in the `kube-system` namespace and check the endpoints behind the service. Check the pods that serve the endpoints.
 ```bash
 kubectl -n kube-system describe svc kube-dns
 Name:              kube-dns

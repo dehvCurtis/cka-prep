@@ -26,8 +26,6 @@ https://kubernetes.io/docs/concepts/cluster-administration/networking/
 
 https://kubernetes.io/docs/concepts/cluster-administration/networking/
 
-## 
-
 ## Understand ClusterIP, NodePort, LoadBalancer service types and endpoints
 
 ### ClusterIP
@@ -63,7 +61,7 @@ kubectl get svc web
 if on `minikube`, retrieve Service via NodePort :
 
 ```shell
-minikube svc web --url
+minikube service web --url
 ```
 
 The output is similar to:
