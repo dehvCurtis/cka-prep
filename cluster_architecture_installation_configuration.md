@@ -3,16 +3,8 @@
 Table of Contents
 
 - [Manage role-based access control (RBAC)](#Manage-role-based-access-control-RBAC)
-
 - [Use KubeADM to install a basic cluster](#Use-KubeADM-to-install-a-basic-cluster)
-
 - [Provision underlying infrastructure to deploy a Kubernetes cluster](#Provision-underlying-infrastructure-to-deploy-a-Kubernetes-cluster)
-
-- [](#)
-
-- [](#)
-
-  [](#)
 
 ## Manage role-based access control (RBAC)
 
