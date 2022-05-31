@@ -32,20 +32,32 @@ Table of Contents
 
 Overview of Deployments https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 
+Create namespace
+
+```shell
+# Create a namespace
+kubectl create ns test
+```
+
+**Create Deployment - Imperative**
+
 Create *.yaml for deployment
 
 ```shell
 # Create deployment with output flag and dryrun flag
-kubectl create deployment test-deployment --dry-run --image=nginx:1.19 -o yaml
+kubectl create deployment test-deploy --dry-run --image=nginx:1.19 -o yaml > /tmp/deployment.yaml
 ```
 
-Create Deployment imperative
+Deploy from `*.yaml` file
+
+```
+kubectl create deployment test-deploy
+```
+
+**Create Deployment - Imperative**
 
 
 ```bash
-# Create a namespace
-kubectl create ns test
-
 # Create deployment & replicas - Imperative
 kubectl create deployment test-deployment -n test --image=nginx:1.19 --replicas=3 -o yaml
 ```
