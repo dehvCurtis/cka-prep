@@ -130,39 +130,6 @@ k8s-node-1         Ready    <none>                 2m7s    v1.20.7
 k8s-node-2         Ready    <none>                 117s    v1.20.7
 ```
 
-## Provision underlying infrastructure to deploy a Kubernetes cluster
-
-You can use any cloud provider (AWS, Azure, GCP, OpenStack, etc.) and multiple tools to provision nodes for your Kubernetes cluster.
-
-We will deploy a three node cluster, with one master node and two worker nodes.
-
-Three Libvirt/KVM nodes (or any cloud provider you are using):
-- k8s-controlplane: 2 vCPUs, 4GB RAM, 40GB Disk, 172.16.1.11/24
-- k8s-node-1: 2 vCPUs, 2GB RAM, 40GB Disk, 172.16.1.21/24
-- k8s-node-2: 2 vCPUs, 2GB RAM, 40GB Disk, 172.16.1.22/24
-
-OS description:
-
-```bash
-$ lsb_release -a
-No LSB modules are available.
-Distributor ID:	Ubuntu
-Description:	Ubuntu 20.04.4 LTS
-Release:	    20.04
-Codename:	    focal
-```
-
-We will use a local libvirt/KVM baremetal node with terraform (v0.15.3) to provision the three node cluster described above.
-
-```bash
-mkdir terraform
-cd terraform
-wget https://raw.githubusercontent.com/alijahnas/CKA-practice-exercises/master/terraform/cluster-infra.tf
-terraform init
-terraform plan
-terraform apply
-```
-
 ## Perform a version upgrade on a Kubernetes cluster using KubeADM
 
 Doc: https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/
