@@ -242,7 +242,7 @@ tar xzvf etcd-v3.4.13-linux-amd64.tar.gz
 sudo mv etcd-v3.4.13-linux-amd64/etcdctl /usr/local/bin
 
 # Gather control-plane endpoint IP
-kubectl get nodes -o wide
+kubectl get endpoints
 
 # Get etcd pod name from kube-system namespace
 k -n kube-system get pods
