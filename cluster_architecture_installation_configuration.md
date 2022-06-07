@@ -8,7 +8,174 @@ Table of Contents
 
 ## Manage role-based access control (RBAC)
 
-Doc: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
+Documentation and Resources:
+
+- [Kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+- [Using RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
+- [A Practical Approach to Understanding Kubernetes Authorization](https://thenewstack.io/a-practical-approach-to-understanding-kubernetes-authorization/)
+
+RBAC is handled by roles (permissions) and bindings (assignment of permissions to subjects):
+
+| Object               | Description                                                  |
+| -------------------- | ------------------------------------------------------------ |
+| `Role`               | Permissions within a particular namespace                    |
+| `ClusterRole`        | Permissions to non-namespaced resources; can be used to grant the same permissions as a Role |
+| `RoleBinding`        | Grants the permissions defined in a role to a user or set of users |
+| `ClusterRoleBinding` | Grant permissions across a whole cluster                     |
+
+### Lab Practice
+
+Create the `wahlnetwork1` namespace.
+
+`kubectl create namespace wahlnetwork1`
+
+---
+
+Create a deployment in the `wahlnetwork1` namespace using the image of your choice:
+
+1. `kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4 -n test-ns`
+1. `kubectl create deployment busybox --image=busybox -n test-ns -- sleep 2000`
+
+You can view the yaml file by adding `--dry-run=client -o yaml` to the end of either deployment.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: hello-node
+  name: hello-node
+  namespace: test-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-node
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: hello-node
+    spec:
+      containers:
+        - image: k8s.gcr.io/echoserver:1.4
+          name: echoserver
+          resources: {}
+```
+
+---
+
+Create the `pod-reader` role in the `wahlnetwork1` namespace.
+
+`kubectl create role pod-reader --verb=get --verb=list --verb=watch --resource=pods -n test-ns`
+
+> Alternatively, use `kubectl create role pod-reader --verb=get --verb=list --verb=watch --resource=pods -n test-ns --dry-run=client -o yaml` to output a proper yaml configuration.
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  name: pod-reader
+  namespace: test-ns
+rules:
+  - apiGroups:
+      - ""
+    resources:
+      - pods
+    verbs:
+      - get
+      - list
+      - watch
+```
+
+---
+
+Create the `read-pods` rolebinding between the role named `pod-reader` and the user `spongebob` in the `wahlnetwork1` namespace.
+
+`kubectl create rolebinding --role=pod-reader --user=spongebob read-pods -n test-ns`
+
+> Alternatively, use `kubectl create rolebinding --role=pod-reader --user=spongebob read-pods -n wahlnetwork1 --dry-run=client -o yaml` to output a proper yaml configuration.
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  name: read-pods
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: pod-reader
+subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: spongebob
+```
+
+---
+
+Create the `cluster-secrets-reader` clusterrole.
+
+`kubectl create clusterrole cluster-secrets-reader --verb=get --verb=list --verb=watch --resource=secrets`
+
+> Alternatively, use `kubectl create clusterrole cluster-secrets-reader --verb=get --verb=list --verb=watch --resource=secrets --dry-run=client -o yaml` to output a proper yaml configuration.
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: cluster-secrets-reader
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  verbs:
+  - get
+  - list
+  - watch
+```
+
+---
+
+Create the `cluster-read-secrets` clusterrolebinding between the clusterrole named `cluster-secrets-reader` and the user `gizmo`.
+
+`kubectl create clusterrolebinding --clusterrole=cluster-secrets-reader --user=gizmo cluster-read-secrets`
+
+> Alternatively, use `kubectl create clusterrolebinding --clusterrole=cluster-secrets-reader --user=gizmo cluster-read-secrets --dry-run=client -o yaml` to output a proper yaml configuration.
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  creationTimestamp: null
+  name: cluster-read-secrets
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-secrets-reader
+subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: gizmo
+```
+
+Test to see if this works by running the `auth` command.
+
+`kubectl auth can-i get secrets --as=gizmo`
+
+Attempt to get secrets as the `gizmo` user.
+
+`kubectl get secrets --as=gizmo`
+
+```bash
+NAME                  TYPE                                  DATA   AGE
+default-token-lz87v   kubernetes.io/service-account-token   3      7d1h
+```
 
 ## Use KubeADM to install a basic cluster
 
