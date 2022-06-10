@@ -310,12 +310,13 @@ On controlplane node:
 ```bash
 # Upgrade kubeadm
 sudo apt-mark unhold kubeadm
-sudo apt-get update && sudo apt-get install -y kubeadm=1.21.1-00
+sudo apt-get update
+sudo apt-get install -y kubeadm=1.21.1-00
 sudo apt-mark hold kubeadm
 
 # Upgrade controlplane node
-kubectl drain k8s-controlplane --ignore-daemonsets
 sudo kubeadm upgrade plan
+kubectl drain k8s-controlplane --ignore-daemonsets
 sudo kubeadm upgrade apply v1.21.1
 
 # Update Flannel
