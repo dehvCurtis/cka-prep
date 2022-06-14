@@ -25,13 +25,13 @@ RBAC is handled by roles (permissions) and bindings (assignment of permissions t
 
 ### Lab Practice
 
-Create the `wahlnetwork1` namespace.
+Create the `testns` namespace.
 
-`kubectl create namespace wahlnetwork1`
+`kubectl create namespace testns`
 
 ---
 
-Create a deployment in the `wahlnetwork1` namespace using the image of your choice:
+Create a deployment in the `testns` namespace using the image of your choice:
 
 1. `kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4 -n test-ns`
 1. `kubectl create deployment busybox --image=busybox -n test-ns -- sleep 2000`
@@ -67,7 +67,7 @@ spec:
 
 ---
 
-Create the `pod-reader` role in the `wahlnetwork1` namespace.
+Create the `pod-reader` role in the `testns` namespace.
 
 `kubectl create role pod-reader --verb=get --verb=list --verb=watch --resource=pods -n test-ns`
 
@@ -93,11 +93,11 @@ rules:
 
 ---
 
-Create the `read-pods` rolebinding between the role named `pod-reader` and the user `spongebob` in the `wahlnetwork1` namespace.
+Create the `read-pods` rolebinding between the role named `pod-reader` and the user `spongebob` in the `testns` namespace.
 
 `kubectl create rolebinding --role=pod-reader --user=spongebob read-pods -n test-ns`
 
-> Alternatively, use `kubectl create rolebinding --role=pod-reader --user=spongebob read-pods -n wahlnetwork1 --dry-run=client -o yaml` to output a proper yaml configuration.
+> Alternatively, use `kubectl create rolebinding --role=pod-reader --user=spongebob read-pods -n testns --dry-run=client -o yaml` to output a proper yaml configuration.
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
