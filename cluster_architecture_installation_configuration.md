@@ -273,6 +273,30 @@ sudo kubeadm join 172.16.1.11:6443 --token h8vno9.7eroqaei7v1isdpn \
     --discovery-token-ca-cert-hash sha256:44f1def2a041f116bc024f7e57cdc0cdcc8d8f36f0b942bdd27c7f864f645407 --cri-socket unix:///run/containerd/containerd.sock
 ```
 
+Confirm Contexts
+```bash
+kubectl config view
+```
+
+If not context exist on node, perform the following
+
+```bash
+# Copy the config from the server
+cat $HOME/.kube/config
+
+# Create config on the node
+# confirm contexts
+kubectl config view
+
+# make config
+mkdir -p $HOME/.kube
+vi $HOME/.kube/config # paste config from master
+
+# test config
+kubectl config view
+kubectl get nodes
+```
+
 On master node again:
 ```bash
 # Configure kubectl access
