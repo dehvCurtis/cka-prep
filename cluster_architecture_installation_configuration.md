@@ -171,10 +171,6 @@ k8s-node-2         Ready    <none>                 117s    v1.20.7
 
 Doc: https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/
 
-After installing Kubernetes v1.20 here: [install](https://github.com/alijahnas/CKA-practice-exercises/blob/CKA-v1.20/cluster-architecture-installation-configuration.md#use-kubeadm-to-install-a-basic-cluster)
-
-We will now upgrade the cluster to v1.21.
-
 On controlplane node:
 
 ```bash
