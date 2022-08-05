@@ -171,6 +171,8 @@ k8s-node-2         Ready    <none>                 117s    v1.20.7
 
 Doc: https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/
 
+https://github.com/kubernetes/kubernetes/releases
+
 On controlplane node:
 
 ```bash
