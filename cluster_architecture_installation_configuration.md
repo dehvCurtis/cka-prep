@@ -115,6 +115,17 @@ sudo kubeadm join 172.16.1.11:6443 --token h8vno9.7eroqaei7v1isdpn \
     --discovery-token-ca-cert-hash sha256:44f1def2a041f116bc024f7e57cdc0cdcc8d8f36f0b942bdd27c7f864f645407 --cri-socket unix:///run/containerd/containerd.sock
 ```
 
+On master node:
+```bash
+# Configure kubectl access
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+# Deploy Flannel as a network plugin
+sudo kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+```
+
 Confirm Contexts
 ```bash
 kubectl config view
@@ -137,17 +148,6 @@ vi $HOME/.kube/config # paste config from master
 # test config
 kubectl config view
 kubectl get nodes
-```
-
-On master node again:
-```bash
-# Configure kubectl access
-mkdir -p $HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-
-# Deploy Flannel as a network plugin
-sudo kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 ```
 
 ### Check that your nodes are running and ready
