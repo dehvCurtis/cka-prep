@@ -99,7 +99,6 @@ echo 'complete -o default -F __start_kubectl k' >>~/.bashrc
 source ~/.bashrc
 ```
 
-
 Doc: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
 
 Make sure the nodes have different hostnames.
@@ -134,7 +133,7 @@ kubectl config view
 If not context exist on node, perform the following
 
 ```bash
-# Copy the config from the server
+# Copy the config from the master
 cat $HOME/.kube/config
 
 # Create config on the node
