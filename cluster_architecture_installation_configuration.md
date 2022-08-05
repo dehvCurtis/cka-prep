@@ -142,7 +142,9 @@ kubectl config view
 
 # make config
 mkdir -p $HOME/.kube
-vi $HOME/.kube/config # paste config from master
+
+# paste config from mastercontrol plane
+vi $HOME/.kube/config
 
 # test config
 kubectl config view
@@ -152,8 +154,11 @@ kubectl get nodes
 ### Check that your nodes are running and ready
 
 ```bash
+retrieve ip address of master control plane
+ip add | grep inet
+
 # check control plane connectivity
-nc -z -v <control-plane-ip> <port>
+nc -z -v <control-plane-ip> 6443
 
 kubectl get nodes
 NAME               STATUS   ROLES                  AGE     VERSION
