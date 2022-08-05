@@ -85,7 +85,17 @@ sudo apt-get install -y kubelet=1.20.7-00 kubeadm=1.20.7-00 kubectl=1.20.7-00
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
 
+Setup alias `k` and `kubectl` auto-complete
 ### Create a cluster with KubeADM
+https://kubernetes.io/docs/tasks/tools/included/optional-kubectl-configs-bash-linux/
+```bash
+source /usr/share/bash-completion/bash_completion
+echo 'source <(kubectl completion bash)' >>~/.bashrc
+echo 'alias k=kubectl' >>~/.bashrc
+echo 'complete -o default -F __start_kubectl k' >>~/.bashrc
+source ~/.bashrc
+```
+
 
 Doc: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
 
