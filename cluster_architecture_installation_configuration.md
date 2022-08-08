@@ -4,6 +4,8 @@ Table of Contents
 
 - [Use KubeADM to install a basic cluster](#Use-KubeADM-to-install-a-basic-cluster)
 - [Provision underlying infrastructure to deploy a Kubernetes cluster](#Provision-underlying-infrastructure-to-deploy-a-Kubernetes-cluster)
+- [Check Certificate Information](#Check-Certificate-Information)
+- [Backup Restore etcd cluster](#Backup-Restore-etcd-cluster)
 - [Manage role-based access control (RBAC)](#Manage-role-based-access-control-RBAC)
 
 ## Use KubeADM to install a basic cluster
@@ -255,9 +257,26 @@ sudo reboot
 kubectl uncordon k8s-node-1
 ```
 
-## Implement etcd backup and restore
+## Check Certificate Information
 
-### Backup etcd cluster
+```shell
+# Gathering cert info for etcd
+
+# get pods
+kubectl -n kube-system get pods
+
+# retrieve cert info via describe pod
+kubectl -n kube-system describe pod <etc-pod>
+
+# retrieve cert info via kubenetes manifest
+find /etc/kubernetes/manifests
+cat /etc/kubernetes/manifests/etcd.yaml
+
+# get cert expirey info
+openssl x509 -text -in <server-cert>
+```
+
+## Backup Restore etcd cluster
 
 Doc: https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/#backing-up-an-etcd-cluster
 
@@ -314,25 +333,6 @@ ETCDCTL_API=3 etcdctl --endpoints <ip-address>:2379 snapshot restore <snapshot-n
 
 # Restore from directory
 ETCDCTL_API=3 etcdctl --data-dir <data-dir-location> snapshot restore <snapshot-name>
-```
-
-### Check Certificate Information
-
-```shell
-# Gathering cert info for etcd
-
-# get pods
-kubectl -n kube-system get pods
-
-# retrieve cert info via describe pod
-kubectl -n kube-system describe pod <etc-pod>
-
-# retrieve cert info via kubenetes manifest
-find /etc/kubernetes/manifests
-cat /etc/kubernetes/manifests/etcd.yaml
-
-# get cert expirey info
-openssl x509 -text -in <server-cert>
 ```
 
 ## Manage role-based access control (RBAC)
