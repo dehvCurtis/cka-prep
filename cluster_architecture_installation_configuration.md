@@ -422,9 +422,9 @@ rules:
 
 Create the `read-pods` rolebinding between the role named `pod-reader` and the user `spongebob` in the `test-ns` namespace.
 
-`kubectl create rolebinding --role=pod-reader --user=spongebob read-pods -n test-ns`
+`kubectl -n test-ns create rolebinding read-pods --role=pod-reader --user=spongebob`
 
-> Alternatively, use `kubectl create rolebinding --role=pod-reader --user=spongebob read-pods -n test-ns --dry-run=client -o yaml` to output a proper yaml configuration.
+> Alternatively, use `kubectl -n test-ns create rolebinding --role=pod-reader --user=spongebob read-pods --dry-run=client -o yaml` to output a proper yaml configuration.
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -446,9 +446,9 @@ subjects:
 
 Create the `cluster-secrets-reader` clusterrole.
 
-`kubectl create clusterrole cluster-secrets-reader --verb=get --verb=list --verb=watch --resource=secrets`
+`kubectl create clusterrole cluster-secrets-reader --verb=get,list,watch --resource=secrets`
 
-> Alternatively, use `kubectl create clusterrole cluster-secrets-reader --verb=get --verb=list --verb=watch --resource=secrets --dry-run=client -o yaml` to output a proper yaml configuration.
+> Alternatively, use `kubectl create clusterrole cluster-secrets-reader --verb=get,list,watch --resource=secrets --dry-run=client -o yaml` to output a proper yaml configuration.
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -466,7 +466,6 @@ rules:
   - list
   - watch
 ```
-
 ---
 
 Create the `cluster-read-secrets` clusterrolebinding between the clusterrole named `cluster-secrets-reader` and the user `gizmo`.
