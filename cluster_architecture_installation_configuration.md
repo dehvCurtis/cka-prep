@@ -260,8 +260,6 @@ kubectl uncordon k8s-node-1
 ## Check Certificate Information
 
 ```shell
-# Gathering cert info for etcd
-
 # get pods
 kubectl -n kube-system get pods
 
