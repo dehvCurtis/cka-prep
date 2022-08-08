@@ -1,4 +1,3 @@
-
 # Cluster Architecture, Installation & Configuration (25%)
 
 Table of Contents
