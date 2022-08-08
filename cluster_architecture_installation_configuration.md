@@ -16,7 +16,7 @@ Doc: https://kubernetes.io/docs/setup/production-environment/container-runtimes/
 
 Do this on all three nodes:
 
-```bash
+```bash 
 # disable swap (required by cluster)
 swapoff -a
 
