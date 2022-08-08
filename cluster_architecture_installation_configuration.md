@@ -18,7 +18,7 @@ Do this on all three nodes:
 
 ```bash 
 # disable swap (required by cluster)
-swapoff -a
+swapoff -as
 
 # containerd preinstall configuration
 cat <<EOF | sudo tee /etc/modules-load.d/containerd.conf
