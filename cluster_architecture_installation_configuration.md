@@ -112,6 +112,7 @@ sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --cri-socket unix:///run/cont
 
 Run the output of the init command on worker nodes:
 ```bash
+# EXAMPLE
 sudo kubeadm join 172.16.1.11:6443 --token h8vno9.7eroqaei7v1isdpn \
     --discovery-token-ca-cert-hash sha256:44f1def2a041f116bc024f7e57cdc0cdcc8d8f36f0b942bdd27c7f864f645407 --cri-socket unix:///run/containerd/containerd.sock
 ```
