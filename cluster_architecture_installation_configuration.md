@@ -397,9 +397,9 @@ spec:
 
 Create the `pod-reader` role in the `test-ns` namespace.
 
-`kubectl create role pod-reader --verb=get --verb=list --verb=watch --resource=pods -n test-ns`
+`kubectl create role pod-reader --verb=get,list,watch --resource=pods -n test-ns`
 
-> Alternatively, use `kubectl create role pod-reader --verb=get --verb=list --verb=watch --resource=pods -n test-tens --dry-run=client -o yaml` to output a proper yaml configuration.
+> Alternatively, use `kubectl create role pod-reader -verb=get,list,watch --resource=pods -n test-tens --dry-run=client -o yaml` to output a proper yaml configuration.
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
