@@ -295,13 +295,16 @@ wget https://github.com/etcd-io/etcd/releases/download/v3.4.13/etcd-v3.4.13-linu
 tar xzvf etcd-v3.4.13-linux-amd64.tar.gz
 sudo mv etcd-v3.4.13-linux-amd64/etcdctl /usr/local/bin
 
-# Gather control-plane endpoint IP
+# Gather control-plane endpoint IP and node names
 kubectl get endpoints
+kubectl get nodes
 
 # Get etcd pod name from kube-system namespace
 k -n kube-system get pods
 
-# grep to output cert info
+# gather cert info
+ls -l /etc/kubernetes/pki/etcd/
+# alternatively you can check with a `describe` statement
 k -n kube-system describe pod <etcd-pod> | grep "\-\-"
 
 # output needed arguments
