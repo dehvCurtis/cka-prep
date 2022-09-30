@@ -305,7 +305,7 @@ k -n kube-system get pods
 # gather cert info
 ls -l /etc/kubernetes/pki/etcd/
 # alternatively you can check with a `describe` statement
-k -n kube-system describe pod <etcd-pod> | grep "\-\-"
+k -n kube-system describe pod <etcd-pod>
 
 # output needed arguments
 etcdctl --help | grep -A 25 OPTIONS
