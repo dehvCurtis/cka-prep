@@ -474,7 +474,7 @@ rules:
 
 Create the `cluster-read-secrets` clusterrolebinding between the clusterrole named `cluster-secrets-reader` and the user `gizmo`.
 
-`kubectl create clusterrolebinding --clusterrole=cluster-secrets-reader --user=gizmo cluster-read-secrets`
+`kubectl create clusterrolebinding cluster-read-secrets --clusterrole=cluster-secrets-reader --user=gizmo`
 
 > Alternatively, use `kubectl create clusterrolebinding --clusterrole=cluster-secrets-reader --user=gizmo cluster-read-secrets --dry-run=client -o yaml` to output a proper yaml configuration.
 
