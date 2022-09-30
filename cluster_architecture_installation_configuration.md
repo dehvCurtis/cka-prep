@@ -314,7 +314,7 @@ etcdctl --help | grep -A 25 OPTIONS
 export ETCDCTL_API=3
 
 # create etcd snapshot
-etcdctl --endpoints=<endpoint-ip>:2379 \
+sudo etcdctl --endpoints=<endpoint-ip>:2379 \
 --cert="" \
 --cacert="" \
 --key="" \
