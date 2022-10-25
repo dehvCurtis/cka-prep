@@ -55,7 +55,7 @@ kubectl -n svc-ns create deployment web --image=gcr.io/google-samples/hello-app:
 Expose Deployment:
 
 ```bash
-kubectl expose deployment web --type=NodePort --port=8080
+kubectl -n svc-ns expose deployment web --type=NodePort --port=8080
 ```
 
 Verify Service is created and is available on a node port:
