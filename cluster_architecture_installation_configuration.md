@@ -49,6 +49,17 @@ sudo apt-get install -y \
     curl \
     gnupg \
     lsb-release
+    
+apt install -y curl \
+    apt-transport-https \
+    vim \
+    git \
+    wget \
+    gnupg2 \
+    software-properties-common \
+    apt-transport-https \
+    ca-certificates \
+    uidmap
 
 ## Add Docker’s official GPG key
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
