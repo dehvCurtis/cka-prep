@@ -43,12 +43,6 @@ sudo sysctl --system
 ## Set up the repository
 ### Install packages to allow apt to use a repository over HTTPS
 sudo apt-get update
-sudo apt-get install -y \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release
     
 apt install -y curl \
     apt-transport-https \
