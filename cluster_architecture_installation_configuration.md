@@ -30,10 +30,10 @@ sudo modprobe overlay
 sudo modprobe br_netfilter
 
 # Setup required sysctl params, these persist across reboots.
-cat << EOF | tee /etc/sysctl.d/kubernetes.conf
+cat <<EOF | sudo tee /etc/sysctl.d/99-kubernetes-cri.conf
+net.bridge.bridge-nf-call-iptables  = 1
+net.ipv4.ip_forward                 = 1
 net.bridge.bridge-nf-call-ip6tables = 1
-net.bridge.bridge-nf-call-iptables = 1
-net.ipv4.ip_forward = 1
 EOF
 
 # Apply sysctl params without reboot
@@ -43,22 +43,22 @@ sudo sysctl --system
 ## Set up the repository
 ### Install packages to allow apt to use a repository over HTTPS
 sudo apt-get update
-    
-apt install -y curl \
-    apt-transport-https \
-    vim \
-    git \
-    wget \
-    gnupg2 \
-    software-properties-common \
+sudo apt-get install -y \
     apt-transport-https \
     ca-certificates \
-    uidmap
+    curl \
+    gnupg \
+    lsb-release
 
 ## Add Docker’s official GPG key
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
-## Install containerd
+## Add Docker apt repository.
+echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+## Install packages
 sudo apt-get update
 sudo apt-get install -y \
   containerd.io
