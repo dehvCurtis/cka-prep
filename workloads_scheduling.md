@@ -51,7 +51,7 @@ kubectl create deployment test-deploy --dry-run --image=nginx:1.19 -o yaml > /tm
 Deploy from `*.yaml` file
 
 ```
-kubectl create deployment test-deploy
+kubectl apply -f /tmp/deployment.yaml
 ```
 
 **Create Deployment - Imperative**
