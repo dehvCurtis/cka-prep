@@ -464,6 +464,18 @@ kubectl apply -f pod-antiaffinity.yaml
 
 https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
 
+
+### Tolerations
+
+Add to an example pod yaml. You specify a toleration for a pod in the PodSpec.
+
+```yaml
+tolerations:
+- key: "key1"
+  operator: "Exists"
+  effect: "NoSchedule"
+```
+
 **Taints**
 
 Add taint to Node.
@@ -490,17 +502,6 @@ Remove taint from Node
 
 ```bash
 kubectl taint node <node> key1=value1:NoSchedule-
-```
-
-### Tolerations
-
-Add to pod yaml (using taint example above)
-
-```yaml
-tolerations:
-- key: "key1"
-  operator: "Exists"
-  effect: "NoSchedule"
 ```
 
 ### Scheduler
