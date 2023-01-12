@@ -20,7 +20,7 @@ Table of Contents
   - [Label Selectors](#label-selectors)
   - [Affinity](#Affinity)
   - [Anti-Affinity](#Anti-Affinity)
-  - [Taints & Tolerations](#taints-tolerations)
+  - [Taints & Tolerations](#taints--tolerations)
   - [Scheduler](#Scheduler)
 - [Manifest Management & Common Templating Tools](#Manifest-Management--Common-Templating-Tools)
 
