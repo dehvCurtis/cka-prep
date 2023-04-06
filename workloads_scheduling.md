@@ -414,13 +414,35 @@ spec:
 
 https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
 
-Assign pod to node with `kind=special` label selector
+#### Assign pod to node with `kind=special` label selector
+
+Create pod
+```bash
+k run test-pod --image=nginx --dry-run -o yaml > test-pod.yaml
+```
 
 Add the following to the `spec` of  your pod `*.yaml`
 
 ```yaml
 nodeSelector:
   kind: special
+```
+
+Check pods
+```bash
+kubectl get pods
+```
+
+Pods should be `Pending`
+
+Add the label to the node
+```bash
+k label node <node-name> kind=special
+```
+
+Check pods
+```bash
+kubectl get pods
 ```
 
 Apply yaml configuration
