@@ -378,7 +378,7 @@ https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
 
 https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/quota-memory-cpu-namespace/
 
-Create `nginx:alpine` pod with the following:
+Create pod yaml called `nginx-alpine.yaml` using the following:
 
 request
 
@@ -416,16 +416,16 @@ https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
 
 #### Assign pod to node with `kind=special` label selector
 
-Create pod
-```bash
-k run test-pod --image=nginx --dry-run -o yaml > test-pod.yaml
-```
-
 Add the following to the `spec` of  your pod `*.yaml`
 
 ```yaml
 nodeSelector:
   kind: special
+```
+
+Create pod
+```bash
+k apply -f nginx-alpine.yaml
 ```
 
 Check pods
