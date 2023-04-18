@@ -445,12 +445,6 @@ Check pods
 kubectl get pods
 ```
 
-Apply yaml configuration
-
-```yaml
-k apply -f labelselector/pod-selector.yaml
-```
-
 ### Affinity & Anti-Affinity
 
 https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
