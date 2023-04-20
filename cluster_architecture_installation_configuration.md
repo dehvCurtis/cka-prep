@@ -364,8 +364,9 @@ Create the `cicd` namespace.
 
 Create a deployment in the `cicd` namespace using the image of your choice:
 
-1. `kubectl -n cicd create deployment hello-node --image=k8s.gcr.io/echoserver:1.4`
-1. `kubectl -n cicd create deployment busybox --image=busybox -- sleep 2000`
+1. `kubectl -n cicd create deployment cicd-deployment --image=k8s.gcr.io/echoserver:1.4`
+or
+1. `kubectl -n cicd create deployment cicd-deployment --image=busybox -- sleep 2000`
 
 You can view the yaml file by adding `--dry-run=client -o yaml` to the end of either deployment.
 
@@ -375,20 +376,20 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: hello-node
-  name: hello-node
+    app: cicd-deployment
+  name: cicd-deployment
   namespace: cicd
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello-node
+      app: cicd-deployment
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: hello-node
+        app: cicd-deployment
     spec:
       containers:
         - image: k8s.gcr.io/echoserver:1.4
