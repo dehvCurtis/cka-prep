@@ -354,18 +354,18 @@ RBAC is handled by roles (permissions) and bindings (assignment of permissions t
 | `ClusterRole`        | Permissions to non-namespaced resources; can be used to grant the same permissions as a Role |
 | `ClusterRoleBinding` | Grant permissions across a whole cluster                     |
 
-### Lab Practice
+### Deployment & Namespace
 
-Create the `test-ns` namespace.
+Create the `cicd` namespace.
 
-`kubectl create namespace test-ns`
+`kubectl create namespace cicd`
 
 ---
 
-Create a deployment in the `test-ns` namespace using the image of your choice:
+Create a deployment in the `cicd` namespace using the image of your choice:
 
-1. `kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4 -n test-ns`
-1. `kubectl create deployment busybox --image=busybox -n test-ns -- sleep 2000`
+1. `kubectl -n cicd create deployment hello-node --image=k8s.gcr.io/echoserver:1.4`
+1. `kubectl -n cicd create deployment busybox --image=busybox -- sleep 2000`
 
 You can view the yaml file by adding `--dry-run=client -o yaml` to the end of either deployment.
 
@@ -377,7 +377,7 @@ metadata:
   labels:
     app: hello-node
   name: hello-node
-  namespace: test-ns
+  namespace: cicd
 spec:
   replicas: 1
   selector:
@@ -396,13 +396,13 @@ spec:
           resources: {}
 ```
 
----
+### Role
 
-Create the `pod-reader` role in the `test-ns` namespace.
+Create the `pod-reader` role in the `cicd` namespace.
 
-`kubectl create role pod-reader --verb=get,list,watch --resource=pods -n test-ns`
+`kubectl -n cicd create role pod-reader --verb=get,list,watch --resource=pods`
 
-> Alternatively, use `kubectl create role pod-reader -verb=get,list,watch --resource=pods -n test-tens --dry-run=client -o yaml` to output a proper yaml configuration.
+> Alternatively, use `kubectl -n cicd create role pod-reader -verb=get,list,watch --resource=pods --dry-run=client -o yaml` to output a proper yaml configuration.
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -410,7 +410,7 @@ kind: Role
 metadata:
   creationTimestamp: null
   name: pod-reader
-  namespace: test-ns
+  namespace: cicd
 rules:
   - apiGroups:
       - ""
@@ -422,13 +422,13 @@ rules:
       - watch
 ```
 
----
+### RoleBinding
 
-Create the `read-pods` rolebinding between the role named `pod-reader` and the user `spongebob` in the `test-ns` namespace.
+Create the `read-pods` rolebinding between the role named `pod-reader` and the user `spongebob` in the `cicd` namespace.
 
-`kubectl -n test-ns create rolebinding read-pods --role=pod-reader --user=spongebob`
+`kubectl -n cicd create rolebinding read-pods --role=pod-reader --user=spongebob`
 
-> Alternatively, use `kubectl -n test-ns create rolebinding --role=pod-reader --user=spongebob read-pods --dry-run=client -o yaml` to output a proper yaml configuration.
+> Alternatively, use `kubectl -n cicd create rolebinding --role=pod-reader --user=spongebob read-pods --dry-run=client -o yaml` to output a proper yaml configuration.
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -446,7 +446,9 @@ subjects:
     name: spongebob
 ```
 
----
+### Cluster Role
+
+Remember that a `ClusterRole` is specific to non-namespaced resources in the cluster.
 
 Create the `cluster-secrets-reader` clusterrole.
 
@@ -470,7 +472,8 @@ rules:
   - list
   - watch
 ```
----
+
+### ClusterRoleBinding
 
 Create the `cluster-read-secrets` clusterrolebinding between the clusterrole named `cluster-secrets-reader` and the user `gizmo`.
 
