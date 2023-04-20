@@ -364,7 +364,7 @@ Create the `cicd` namespace.
 
 Create a deployment in the `cicd` namespace using the image of your choice:
 
-1. ```shell
+```shell
 kubectl -n cicd create deployment cicd-deployment --image=k8s.gcr.io/echoserver:1.4  -o yaml
 ```
 
