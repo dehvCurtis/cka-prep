@@ -400,11 +400,7 @@ spec:
 Create the `pod-reader` role in the `cicd` namespace.
 
 ```shell
-kubectl -n cicd create role pod-reader --verb=get,list,watch --resource=pods
-```
-
-```shell
-kubectl -n cicd create role pod-reader -verb=get,list,watch --resource=pods --dry-run=client -o yaml
+kubectl -n cicd create role pod-reader --verb=get,list,watch --resource=pods --dry-run=client -o yaml
 ```
 
 ```yaml
