@@ -399,9 +399,13 @@ spec:
 
 Create the `pod-reader` role in the `cicd` namespace.
 
-`kubectl -n cicd create role pod-reader --verb=get,list,watch --resource=pods`
+```shell
+kubectl -n cicd create role pod-reader --verb=get,list,watch --resource=pods
+```
 
-> Alternatively, use `kubectl -n cicd create role pod-reader -verb=get,list,watch --resource=pods --dry-run=client -o yaml` to output a proper yaml configuration.
+```shell
+kubectl -n cicd create role pod-reader -verb=get,list,watch --resource=pods --dry-run=client -o yaml
+```
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
