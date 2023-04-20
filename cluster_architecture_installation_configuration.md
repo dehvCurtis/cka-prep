@@ -350,8 +350,8 @@ RBAC is handled by roles (permissions) and bindings (assignment of permissions t
 | Object               | Description                                                  |
 | -------------------- | ------------------------------------------------------------ |
 | `Role`               | Permissions within a particular namespace                    |
-| `ClusterRole`        | Permissions to non-namespaced resources; can be used to grant the same permissions as a Role |
 | `RoleBinding`        | Grants the permissions defined in a role to a user or set of users |
+| `ClusterRole`        | Permissions to non-namespaced resources; can be used to grant the same permissions as a Role |
 | `ClusterRoleBinding` | Grant permissions across a whole cluster                     |
 
 ### Lab Practice
