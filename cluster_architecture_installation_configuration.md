@@ -451,9 +451,9 @@ Remember that a `ClusterRole` is specific to non-namespaced resources in the clu
 
 Create the `cluster-secrets-reader` clusterrole.
 
-`kubectl create clusterrole cluster-secrets-reader --verb=get,list,watch --resource=secrets`
-
-> Alternatively, use `kubectl create clusterrole cluster-secrets-reader --verb=get,list,watch --resource=secrets --dry-run=client -o yaml` to output a proper yaml configuration.
+```shell
+kubectl create clusterrole cluster-secrets-reader --verb=get,list,watch --resource=secrets --dry-run=client -o yaml
+```
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -476,9 +476,9 @@ rules:
 
 Create the `cluster-read-secrets` clusterrolebinding between the clusterrole named `cluster-secrets-reader` and the user `gizmo`.
 
-`kubectl create clusterrolebinding cluster-read-secrets --clusterrole=cluster-secrets-reader --user=gizmo`
-
-> Alternatively, use `kubectl create clusterrolebinding --clusterrole=cluster-secrets-reader --user=gizmo cluster-read-secrets --dry-run=client -o yaml` to output a proper yaml configuration.
+```shell
+kubectl create clusterrolebinding --clusterrole=cluster-secrets-reader --user=gizmo cluster-read-secrets --dry-run=client -o yaml
+```
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
