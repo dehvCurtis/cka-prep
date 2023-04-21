@@ -13,11 +13,9 @@ Table of Contents
 - [Scale Applications](#scale-applications)
   - [Scale Application](#scale-application)
   - [Auto-Scale Application](#auto-scale-application)
-- [Robust, Self-Healing, Application Deployments](#robust-self-healing-application-deployments)
-  - [ReplicaSets](#replicasets)
+- [Assigning Pods to Nodes](#Assigning-Pods-to-Nodes)
   - [DaemonSets](#daemonSets)
-  - [Resource Limits](#resource-limits)
-  - [Label Selectors](#label-selectors)
+  - [Node Selectors](#label-selectors)
   - [Affinity](#Affinity)
   - [Anti-Affinity](#Anti-Affinity)
   - [Taints & Tolerations](#taints--tolerations)
@@ -325,13 +323,16 @@ kubectl get hpa
 kubectl get pods
 ```
 
-## Robust, Self-Healing, Application Deployments
+## Assigning Pods to Nodes
 
-### ReplicaSets
+https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
 
-https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
+You can use any of the following methods to choose where Kubernetes schedules specific Pods:
 
-A deployment uses a replicaset object to maintain the right number of desired replicas of a pod. See section [Deployments](#Deployments) above to see how deployments handle replicaset for updating.
+ - nodeSelector field matching against node labels
+ - Affinity and anti-affinity
+ - nodeName field
+ - Pod topology spread constraints
 
 ### DaemonSets
 
@@ -372,49 +373,13 @@ Deploy `DaemonSet`
 kubectl apply -f daemonset.yaml
 ```
 
-### Resource Limits
-
-https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
-
-https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/quota-memory-cpu-namespace/
-
-Create pod yaml called `nginx-alpine.yaml` using the following:
-
-request
-
-- 1GB memory (1Gi)
-- half CPU (500m)
-
-limit
-
-- 2GB memory (2Gi)
-- whole CPU (1)
-
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  labels:
-    run: podquota
-  name: podquota
-spec:
-  containers:
-  - image: nginx:alpine
-    name: podquota
-    resources:
-      requests:
-        memory: "1Gi"
-        cpu: "500m"
-      limits:
-        memory: "2Gi"
-        cpu: "1"
-```
-
-### Label Selectors
+### Node Selector
 
 https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
 
-#### Assign pod to node with `kind=special` label selector
+nodeSelector is the simplest recommended form of node selection constraint. You can add the nodeSelector field to your Pod specification and specify the node labels you want the target node to have. Kubernetes only schedules the Pod onto nodes that have each of the labels you specify.
+
+#### Assign pod to node with `kind=special` node selector
 
 Add the following to the `spec` of  your pod `*.yaml`
 
@@ -449,32 +414,54 @@ kubectl get pods
 
 https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
 
+Affinity and anti-affinity expands the types of constraints you can define using `nodeSelector`. 
+
 **Affinity**
 
+There are two types of node affinity:
 
+    - `requiredDuringSchedulingIgnoredDuringExecution`: The scheduler can't schedule the Pod unless the rule is met. This functions like nodeSelector, but with a more expressive syntax.
+    - `preferredDuringSchedulingIgnoredDuringExecution`: The scheduler tries to find a node that meets the rule. If a matching node is not available, the scheduler still schedules the Pod.
 
-**Anti-Affinity**
-
-`requiredDuringSchedulingIgnoredDuringExecution`: The scheduler can't schedule the Pod unless the rule is met. This functions like `nodeSelector`, but with a more expressive syntax.
-
-Add the following to the `.spec` in your `pod-antiaffinity.yaml`
+You can specify node affinities using the `.spec.affinity.nodeAffinity` field in your Pod spec.
 
 ```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: with-node-affinity
+spec:
   affinity:
-    podAntiAffinity:
+    nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
-        - labelSelector:
-            matchExpressions:
-              - key: run
-                operator: In
-                values:
-                  - <pod-name>
-          topologyKey: kubernetes.io/hostname
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: topology.kubernetes.io/zone
+            operator: In
+            values:
+            - antarctica-east1
+            - antarctica-west1
+  containers:
+  - name: with-node-affinity
+    image: registry.k8s.io/pause:2.0
 ```
 
-```bash
-kubectl apply -f pod-antiaffinity.yaml
+In this example, the following rule applies:
+
+The node must have a label with the key `topology.kubernetes.io/zone` and the value of that label must be either `antarctica-east1` or `antarctica-west1`.
+
+After creating this pod, it will remain in the pending state
+
+Check your pods, add one of the labels to a node and confirm the pod is now in a running state.
+
+```shell
+kubectl get pods
+kubectl label nodes <node> topology.kubernetes.io/zone=antarctica-east1
+kubectl get pods
 ```
+**Anti-Affinity**
+
+
 
 ### Taints & Tolerations
 
